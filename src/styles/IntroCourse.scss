@@ -1,0 +1,137 @@
+.IntroCourse {
+    width: 100%;
+    height: auto;
+    padding-top: calc(var(--index)*4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: calc(var(--index)*1.5);
+    text-align: center;
+
+    h3 {
+        width: 65%;
+        font-size: calc(var(--index)*1.5);
+        color: var(--main-color);
+    }
+
+    p {
+        width: 75%;
+        font-size: calc(var(--index)*1);
+        word-spacing: calc(var(--index)*0.4);
+    }
+
+    h5 {
+        font-size: calc(var(--index)*1);
+        font-weight: 600;
+    }
+
+    button{
+        font-size: calc(var(--index)*1.2);
+        font-weight: 500;
+        background-color: var(--main-color);
+        color: var(--any-text-color);
+        padding: calc(var(--index)*0.5) calc(var(--index)*1);
+        border-radius: calc(var(--index)*6);
+        cursor: pointer;
+        transition: 0.3s ease;
+
+        &:hover{
+            filter: brightness(90%);
+        }
+    }
+}
+
+.courses {
+    width: 89%;
+    height: auto;
+    background-color: var(--other-bg-color);
+    border: calc(var(--index)*0.1) solid var(--border-color);
+    border-radius: calc(var(--index)*0.3);
+    padding: calc(var(--index)*1);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: calc(var(--index)*1);
+}
+
+.course-div {
+    width: 100%;
+    height: auto;
+    padding: calc(var(--index)*0.8);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--bg-color);
+    border: calc(var(--index)*0.1) solid var(--border-color);
+    border-radius: calc(var(--index)*0.3);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+
+    .course-img {
+        width: calc(var(--index)*3.55);
+        height: calc(var(--index)*3.55);
+        overflow: hidden;
+        border-radius: calc(var(--index)*0.35);
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    }
+
+    .name-course {
+        width: calc(var(--index)*10);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        p {
+            font-size: calc(var(--index)*1.2);
+            font-weight: 500;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            text-align: center;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .hide-progress{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: calc(var(--index)*1);
+        top: 0;
+        left: 0;
+        -webkit-backdrop-filter: blur(calc(var(--index)*1));
+        -o-backdrop-filter: blur(calc(var(--index)*1));
+        -moz-backdrop-filter: blur(calc(var(--index)*1));
+        -ms-backdrop-filter: blur(calc(var(--index)*1));
+        backdrop-filter: blur(calc(var(--index)*1));
+        cursor: default;
+
+        h5{
+            font-size: calc(var(--index)*1);
+            font-weight: 500;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            text-align: center;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-shadow: 0 0 calc(var(--index)*0.4) rgba(0, 0, 0, 0.342);
+            color: var(--other-text-color);
+        }
+    }
+}
