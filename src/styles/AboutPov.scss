@@ -103,23 +103,114 @@
     }
 }
 
-@media (max-width: 870px){
-    .PovInfo{
+@media (max-width: 870px) {
+    .PovInfo {
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
+        gap: calc(var(--index)*2);
 
-        .PovImage{
-            width: 80%;
+        .PovImage {
+            width: 90%;
             height: calc(var(--index)*35);
 
-            .firstPovPart{
+            .firstPovPart {
                 gap: calc(var(--index)*1.5);
             }
-            .secondPovPart{
+
+            .secondPovPart {
                 bottom: calc(var(--index)*0.5);
                 width: calc(var(--index)*20.5);
                 height: calc(var(--index)*14);
+            }
+        }
+
+        .PovPrefers {
+            width: 80%;
+
+            h3 {
+                font-size: calc(var(--index)*1.8);
+            }
+
+            .prefers {
+                ul {
+                    gap: calc(var(--index)*1.6);
+
+                    li {
+                        font-size: calc(var(--index)*1.2);
+                        line-height: calc(var(--index)*1.8);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .PovInfo {
+        .PovImage {
+            width: 95%;
+            height: auto;
+            gap: calc(var(--index)*1.5);
+
+            .firstPovPart {
+                img {
+                    width: 100%;
+                    height: 100%;
+
+                    &:nth-child(2) {
+                        height: 100%;
+                    }
+                }
+            }
+
+            .secondPovPart {
+                width: 100%;
+                position: relative;
+                bottom: 0;
+                left: 0;
+                transform: translateX(0);
+                height: calc(var(--index)*20);
+            }
+        }
+
+        .PovPrefers {
+            width: 95%;
+            gap: calc(var(--index)*1.8);
+
+            h3 {
+                font-size: calc(var(--index)*2.3);
+            }
+
+            .prefers {
+                ul {
+                    gap: calc(var(--index)*2);
+
+                    li {
+                        font-size: calc(var(--index)*1.5);
+                        line-height: calc(var(--index)*2.2);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .PovInfo {
+        .PovImage {
+            width: 100%;
+
+            .firstPovPart {
+                height: calc(var(--index)*15);
+
+                img {
+                    object-fit: cover;
+                }
+            }
+
+            .secondPovPart {
+                height: calc(var(--index)*15);
             }
         }
     }

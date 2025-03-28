@@ -56,6 +56,7 @@ header {
             h1 {
                 font-size: calc(var(--index)*2);
                 font-weight: 500;
+
                 span {
                     color: var(--main-color);
                 }
@@ -108,45 +109,47 @@ header {
 }
 
 @media (max-width: 650px) {
-    .header{
+    .header {
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
         gap: calc(var(--index)*3);
     }
 
-    .intro{
+    .intro {
         align-items: center;
-        *{
+
+        * {
             text-align: center;
         }
 
-        .intro-tex{
+        .intro-tex {
             align-items: center;
             gap: calc(var(--index)*2.5);
-            .main-intro-tex{
+
+            .main-intro-tex {
                 align-items: center;
                 gap: calc(var(--index)*0.5);
 
-                h1{
+                h1 {
                     font-size: calc(var(--index)*2.8);
                 }
 
-                p{
+                p {
                     font-size: calc(var(--index)*1.5);
                 }
             }
 
-            h3{
+            h3 {
                 font-size: calc(var(--index)*1.65);
             }
 
-            .intro-tex-btn{
+            .intro-tex-btn {
                 font-size: calc(var(--index)*1.8);
             }
         }
 
-        .intro-div{
+        .intro-div {
             padding: calc(var(--index)*0.8);
             gap: calc(var(--index)*1.5);
 
@@ -154,7 +157,7 @@ header {
                 width: calc(var(--index)*2.8);
                 height: calc(var(--index)*3);
             }
-    
+
             h3 {
                 font-size: calc(var(--index)*1.8);
                 font-weight: 600;
@@ -162,21 +165,22 @@ header {
         }
     }
 
-    .intro-img{
+    .intro-img {
         width: calc(var(--index)*30);
         height: calc(var(--index)*30);
     }
 }
 
-@media (max-width: 370px){
-    .intro-img{
+@media (max-width: 370px) {
+    .intro-img {
         width: calc(var(--index)*23);
         height: calc(var(--index)*23);
     }
-    .intro{
-        .intro-tex{
-            .main-intro-tex{
-                h1{
+
+    .intro {
+        .intro-tex {
+            .main-intro-tex {
+                h1 {
                     font-size: calc(var(--index)*2.2);
                     width: 100%;
                 }

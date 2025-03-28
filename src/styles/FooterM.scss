@@ -75,3 +75,30 @@
         color: rgba(0, 0, 0, 0.87);
     }
 }
+
+@media (max-width: 580px) {
+    .f-text {
+        h1 {
+            width: 85%;
+        }
+
+        button {
+            font-size: calc(var(--index)*1.8);
+        }
+    }
+
+    .intro-div {
+        padding: calc(var(--index)*0.8);
+        gap: calc(var(--index)*1.5);
+
+        .ico img {
+            width: calc(var(--index)*2.8);
+            height: calc(var(--index)*3);
+        }
+
+        h3 {
+            font-size: calc(var(--index)*1.8);
+            font-weight: 600;
+        }
+    }
+}
