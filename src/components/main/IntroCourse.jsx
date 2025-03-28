@@ -33,6 +33,7 @@ const IntroCourse = () => {
       status: 'progress'
     },
   ]
+  
   return (
     <div className='IntroCourse'>
         <h3>O'z qo'llaringiz bilan mazali sifatli non - bu orzu emas, balki haqiqat.</h3>

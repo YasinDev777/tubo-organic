@@ -21,7 +21,7 @@ const Header = ({ position }) => {
                             <p>Asosiy xamirturushsiz non yopish</p>
                         </div>
                         <h3>Birinchi noningni atigi bir hafta ichida pishir!</h3>
-                        <button>O'rganish</button>
+                        <button className="intro-tex-btn">O'rganish</button>
                     </div>
                 </div>
                 <div className="intro-img">
