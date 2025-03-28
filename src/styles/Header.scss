@@ -173,4 +173,13 @@ header {
         width: calc(var(--index)*23);
         height: calc(var(--index)*23);
     }
+    .intro{
+        .intro-tex{
+            .main-intro-tex{
+                h1{
+                    font-size: calc(var(--index)*2.4);
+                }
+            }
+        }
+    }
 }
