@@ -4,3 +4,9 @@
     padding: 0 calc(var(--index)*4);
     position: relative;
 }
+
+@media (max-width: 390px){
+    .main{
+        padding: 0 calc(var(--index)*2);
+    }
+}

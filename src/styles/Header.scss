@@ -177,7 +177,8 @@ header {
         .intro-tex{
             .main-intro-tex{
                 h1{
-                    font-size: calc(var(--index)*2.4);
+                    font-size: calc(var(--index)*2.2);
+                    width: 100%;
                 }
             }
         }
