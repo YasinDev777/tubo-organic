@@ -101,10 +101,10 @@ const Navbar = () => {
                             </Link>
                         </div>
                         <div className="links">
-                            <Link to='courses'>
+                            <Link to='/courses'>
                                 <button className='btn1' onClick={() => setState(!state)}>Kurslar</button>
                             </Link>
-                            <Link to='login'>
+                            <Link to='/login'>
                                 <button className='btn2' onClick={() => setState(!state)}>Kirish</button>
                             </Link>
                         </div>
