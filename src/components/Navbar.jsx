@@ -58,13 +58,17 @@ const Navbar = () => {
                         </Link>
                     </div>
                     <div className="links">
-                        <button className='btn1'>Kurslar</button>
-                        <button className='btn2'>Kirish</button>
+                        <Link to='courses'>
+                            <button className='btn1'>Kurslar</button>
+                        </Link>                        
+                        <Link to='login'>
+                            <button className='btn2'>Kirish</button>
+                        </Link>
                     </div>
                 </nav>
                 <HiMenuAlt3 className="burgerMenu" onClick={() => setState(!state)} />
             </div>
-            
+
             <div className={`n-div ${state ? 'n-div-active' : ''}`} onClick={() => setState(!state)}>
                 <div className={`nav-m ${state ? 'nav-m-active' : ''}`} onClick={(e) => e.stopPropagation()}>
                     <div className="log-div">
@@ -97,8 +101,12 @@ const Navbar = () => {
                             </Link>
                         </div>
                         <div className="links">
-                            <button className='btn1'>Kurslar</button>
-                            <button className='btn2'>Kirish</button>
+                            <Link to='courses'>
+                                <button className='btn1' onClick={() => setState(!state)}>Kurslar</button>
+                            </Link>
+                            <Link to='login'>
+                                <button className='btn2' onClick={() => setState(!state)}>Kirish</button>
+                            </Link>
                         </div>
                     </div>
                 </div>

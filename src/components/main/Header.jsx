@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import calendarIcon from "../../assets/calendar.png";
 import introImage from "../../assets/intro-img.png";
+import { Link } from "react-router-dom";
 
 const Header = ({ position }) => {
     return (
@@ -21,7 +22,9 @@ const Header = ({ position }) => {
                             <p>Asosiy xamirturushsiz non yopish</p>
                         </div>
                         <h3>Birinchi noningni atigi bir hafta ichida pishir!</h3>
-                        <button className="intro-tex-btn">O'rganish</button>
+                        <Link to='/courses'>
+                            <button className="intro-tex-btn">O'rganish</button>
+                        </Link>
                     </div>
                 </div>
                 <div className="intro-img">

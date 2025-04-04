@@ -1,0 +1,109 @@
+.login {
+    width: 100%;
+    height: calc(100dvh - calc(var(--index)*4.5));
+    padding: calc(var(--index)*2.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--index)*1.65);
+}
+
+.login-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: calc(var(--index)*1.8);
+    padding: calc(var(--index)*1.8) calc(var(--index)*1.2);
+    border: calc(var(--index)*0.15) solid var(--border-color);
+    border-radius: calc(var(--index)*0.5);
+    background: var(--other-bg-color);
+
+    h1 {
+        font-size: calc(var(--index)*1.8);
+    }
+
+    div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: calc(var(--index)*0.6);
+
+        label {
+            font-size: calc(var(--index)*0.85);
+        }
+
+        input {
+            width: 100%;
+            padding: calc(var(--index)*0.4) calc(var(--index)*0.5);
+            border: calc(var(--index)*0.1) solid var(--text-color);
+            border-radius: calc(var(--index)*0.25);
+            font-size: calc(var(--index)*1);
+            background-color: var(--bg-color);
+        }
+    }
+
+    button {
+        width: 100%;
+        padding: calc(var(--index)*0.55) calc(var(--index)*2);
+        background: var(--main-color);
+        color: var(--any-text-color);
+        border-radius: calc(var(--index)*6);
+        font-size: calc(var(--index)*1);
+        cursor: pointer;
+        transition: 0.25s ease;
+
+        &:hover {
+            filter: brightness(80%);
+        }
+    }
+
+    p {
+        font-size: calc(var(--index)*1);
+        width: 90%;
+        text-align: center;
+        line-height: calc(var(--index)*1.5);
+
+        a {
+            font-weight: 500;
+            color: var(--other-text-color);
+        }
+    }
+}
+
+@media (max-width: 950px) {
+    .login-div {
+        gap: calc(var(--index)*2.5);
+
+        h1 {
+            font-size: calc(var(--index)*2.8);
+        }
+
+        div {
+            label {
+                font-size: calc(var(--index)*1.2);
+            }
+
+            input {
+                font-size: calc(var(--index)*1.2);
+                padding: calc(var(--index)*0.8) calc(var(--index)*0.7);
+            }
+        }
+
+        button {
+            font-size: calc(var(--index)*1.5);
+        }
+
+        p {
+            font-size: calc(var(--index)*1.3);
+            line-height: calc(var(--index)*1.7);
+        }
+    }
+}
+
+@media (max-width: 530px) {
+    .login {
+        height: calc(100dvh - calc(var(--index)*5.3));
+    }
+}

@@ -1,5 +1,6 @@
 import React from 'react'
 import CoverCourse from '../../assets/cover-course.png'
+import { Link } from 'react-router-dom'
 const IntroCourse = () => {
   const array = [
     {
@@ -46,7 +47,7 @@ const IntroCourse = () => {
         <div className="courses">
           {
             array.map((item, index) => (
-              <div className='course-div' key={index}>
+              <div className={`course-div ${item.status === 'progress' ? 'progress' : ''}`} key={index}>
                 <div className="course-img">
                   <img src={item.img} alt={item.name} />
                 </div>
@@ -60,7 +61,9 @@ const IntroCourse = () => {
             ))
           }
         </div>
-        <button>Barchasini Ko'rish</button>
+        <Link to='/courses'>
+          <button>Barchasini Ko'rish</button>
+        </Link>
     </div>
   )
 }
