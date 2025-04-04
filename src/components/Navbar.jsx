@@ -72,7 +72,7 @@ const Navbar = () => {
             <div className={`n-div ${state ? 'n-div-active' : ''}`} onClick={() => setState(!state)}>
                 <div className={`nav-m ${state ? 'nav-m-active' : ''}`} onClick={(e) => e.stopPropagation()}>
                     <div className="log-div">
-                        <div className="logo">
+                        <div className="logo" onClick={() => setState(!state)}>
                             <Link to='/'>
                                 <div className="log">
                                     <img src={logo} alt="logo" />
