@@ -57,6 +57,7 @@
             transition: 0.25s ease;
             cursor: pointer;
             user-select: none;
+
             &:hover {
                 transform: scale(1.1);
             }
@@ -106,30 +107,35 @@
 
     .div-courses {
         gap: calc(var(--index)*1.6);
-        .main-course-img{
+
+        .main-course-img {
             height: calc(var(--index)*12);
         }
+
         h1 {
             font-size: calc(var(--index)*1.8);
         }
-        .main-course-info{
+
+        .main-course-info {
+
             .price,
-            .half-price{
-                p{
+            .half-price {
+                p {
                     font-size: calc(var(--index)*1.2);
                 }
             }
         }
-        a{
-            button{
+
+        a {
+            button {
                 font-size: calc(var(--index)*1.25);
             }
         }
     }
 }
 
-@media (max-width:530px){
-    .courses-div{
+@media (max-width:530px) {
+    .courses-div {
         height: calc(100dvh - calc(var(--index)*5.3));
     }
 }
@@ -141,34 +147,38 @@
 
     }
 
-    .div-courses{
+    .div-courses {
         width: 85%;
         margin: 0 auto;
-        .main-course-img{
+
+        .main-course-img {
             height: calc(var(--index)*12);
         }
-        h1{
+
+        h1 {
             font-size: calc(var(--index)*1.8);
         }
 
-        .main-course-info{
+        .main-course-info {
+
             .price,
-            .half-price{
-                p{
+            .half-price {
+                p {
                     font-size: calc(var(--index)*1.5);
                 }
             }
         }
-        a{
-            button{
+
+        a {
+            button {
                 font-size: calc(var(--index)*1.85);
             }
         }
     }
 }
 
-@media (max-width: 315px){
-    .div-courses{
+@media (max-width: 315px) {
+    .div-courses {
         width: 100%;
     }
 }

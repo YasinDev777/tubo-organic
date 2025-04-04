@@ -54,10 +54,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: calc(var(--index)*1);
-}
 
-.progress{
-    user-select: none;
 }
 
 .course-div {
@@ -142,6 +139,10 @@
             cursor: text;
         }
     }
+}
+
+.progress {
+    user-select: none;
 }
 
 @media (max-width: 640px) {
