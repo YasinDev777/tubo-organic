@@ -1,85 +1,28 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import CoverCourse from '../assets/coverBigCourse.webp'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchCourses } from '../redux/slices/coursesSlice'
 
 const Courses = () => {
-  const array = [
-    {
-      name: 'kulinariya',
-      img: CoverCourse,
-      status: 'done',
-      price: '2 000 000',
-      halfPrice: '1 000 000'
-    },
-    {
-      name: 'kulinariya',
-      img: CoverCourse,
-      status: 'progress',
-      price: '2 000 000',
-      halfPrice: '1 000 000'
-    },
-    {
-      name: 'kulinariya',
-      img: CoverCourse,
-      status: 'progress',
-      price: '2 000 000',
-      halfPrice: '1 000 000'
-    },
-    {
-      name: 'kulinariya',
-      img: CoverCourse,
-      status: 'progress',
-      price: '2 000 000',
-      halfPrice: '1 000 000'
-    },
-    {
-      name: 'kulinariya awdawsa wdaw swad',
-      img: CoverCourse,
-      status: 'progress',
-      price: '2 000 000',
-      halfPrice: '1 000 000'
-    },
-    {
-      name: 'kulinariya',
-      img: CoverCourse,
-      status: 'progress',
-      price: '2 000 000',
-      halfPrice: '1 000 000'
-    },
-    {
-      name: 'kulinariya',
-      img: CoverCourse,
-      status: 'progress',
-      price: '2 000 000',
-      halfPrice: '1 000 000'
-    },
-    {
-      name: 'kulinariya',
-      img: CoverCourse,
-      status: 'progress',
-      price: '2 000 000',
-      halfPrice: '1 000 000'
-    },
-    {
-      name: 'kulinariya',
-      img: CoverCourse,
-      status: 'progress',
-      price: '2 000 000',
-      halfPrice: '1 000 000'
-    },
-  ]
+  const dispatch = useDispatch()
+  const { data: courses, status: coursesStatus, error: coursesError } = useSelector(state => state.courses)
+  
+  useEffect(() => {
+    dispatch(fetchCourses())
+  }, [dispatch, courses.length])
 
   return (
     <div className='courses-div'>
       {
-        array.map((item, index) => (
-          <div className="div-courses" key={index}>
+        courses.map((item, index) => (
+          <div className="div-courses" key={item.course_id}>
             <div className="main-course-img">
-              <Link to={`/courses/${item.name}`}>
-                <img src={item.img} alt={item.name} />
+              <Link to={`/courses/${item.course_id}`}>
+                <img src={item.image_url} alt={item.name} loading='lazy' />
               </Link>
             </div>
-            <h1>{item.name}</h1>
+            <h1>{item.course_name}</h1>
             <div className="main-course-info">
               <div className="price">
                 <p className='method-pay'>Kurs narxi</p>
@@ -87,10 +30,10 @@ const Courses = () => {
               </div>
               <div className="half-price">
                 <p className='method-pay'>Muddatli to'lov</p>
-                <p>{item.halfPrice} so'm oy</p>
+                <p>{item.half_price} so'm/oy</p>
               </div>
             </div>
-            <Link to={`/courses/${item.name}`}>
+            <Link to={`/courses/${item.course_id}`}>
               <button>Batafsil</button>
             </Link>
           </div>

@@ -161,6 +161,21 @@ nav {
             background-color: var(--bg-color);
         }
     }
+
+    h4{
+        font-size: calc(var(--index)*1.2);
+    }
+}
+
+.auth-action{
+    display: flex;
+    align-items: center;
+    gap: calc(var(--index)*1.5);
+
+    h4{
+        font-size: calc(var(--index)*0.8);
+        display: none;
+    }
 }
 
 @media (max-width: 950px) {
@@ -275,6 +290,12 @@ nav {
             }
         }
     }
+    .auth-action {
+        h4{
+            font-size: calc(var(--index)*1.4);
+            display: block;
+        }
+    }
 }
 
 @media (max-width: 530px) {
@@ -298,6 +319,12 @@ nav {
 
         .burgerMenu {
             font-size: calc(var(--index)*2.3);
+        }
+    }
+    .auth-action {
+        h4{
+            font-size: calc(var(--index)*1.7);
+            display: block;
         }
     }
 }

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { memo } from "react";
 import calendarIcon from "../../assets/calendar.png";
 import introImage from "../../assets/intro-img.png";
 import { Link } from "react-router-dom";
 
-const Header = ({ position }) => {
+const Header = memo(({ position }) => {
     return (
         <header>
             <div className="header">
@@ -40,6 +40,6 @@ const Header = ({ position }) => {
             </div>
         </header>
     );
-};
+});
 
 export default Header;

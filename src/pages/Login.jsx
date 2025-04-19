@@ -1,16 +1,51 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { loginUsers } from '../functions/UsersLogin';
 const Login = () => {
+  const [status, setStatus] = useState('Tokenni kiriting');
+  const [statusColor, setStatusColor] = useState('');
+  const [inputValue, setInputValue] = useState('')
+  const navigate = useNavigate()
+  
+  const handleLogin = async () => {
+    const res = await loginUsers(inputValue);
+    if (res.success) {
+      setStatusColor(null)
+      setStatus(`Hush kelibsiz ${res.token.name}`)
+      navigate('/')
+    } else {
+      setStatus(JSON.stringify(res.message).replace(/^"|"$/g, ''));
+      setStatusColor('#e53935')
+    }
+  };
+  
+  useEffect(() => {
+    const stored = localStorage.getItem('userData')
+    if (stored) navigate('/')
+  }, [navigate])
+  
+  useEffect(() => {
+    const listener = (e) => {
+      if (e.key === 'Enter') handleLogin()
+    }
+    window.addEventListener('keyup', listener)
+    return () => window.removeEventListener('keyup', listener)
+  }, [inputValue])
+  
   return (
     <div className='login'>
       <div className="login-div">
         <h1>Kirish</h1>
         <div>
-          <label htmlFor="token">Tokenni kiriting</label>
-          <input type="text" id='token' />
+          <label htmlFor="token" style={statusColor ? { color: statusColor } : undefined}>{status}</label>
+          <input 
+          type="text"
+          id='token'
+          style={statusColor ? { borderColor: statusColor } : undefined}
+          onChange={(e) => setInputValue(e.target.value)}
+          />
         </div>
-        <button>Kirish</button>
+        <button onClick={handleLogin}>Kirish</button>
         <p>Token olish uchun <Link to='https://t.me/tubo_manager'>Admin</Link> bilan bog'laning</p>
       </div>
     </div>

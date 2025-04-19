@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FaYoutube } from "react-icons/fa";
 import { PiInstagramLogoFill } from "react-icons/pi";
 import { RiTelegram2Fill } from "react-icons/ri";
@@ -9,6 +9,15 @@ import { FaXmark } from "react-icons/fa6";
 
 const Navbar = () => {
     const [state, setState] = useState(false);
+    const [userData, setUserData] = useState(null)
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        const storedData = localStorage.getItem('userData');
+        if (storedData) {
+            setUserData(JSON.parse(storedData).userData);
+        }
+    }, [navigate]);
 
     useEffect(() => {
         const body = document.querySelector('body')
@@ -61,12 +70,23 @@ const Navbar = () => {
                         <Link to='courses'>
                             <button className='btn1'>Kurslar</button>
                         </Link>                        
-                        <Link to='login'>
-                            <button className='btn2'>Kirish</button>
-                        </Link>
+                        {
+                            !userData ? 
+                            <Link to='login'>
+                                <button className='btn2'>Kirish</button>
+                            </Link>
+                            : <h4>{userData.name}</h4>
+                        }
                     </div>
                 </nav>
-                <HiMenuAlt3 className="burgerMenu" onClick={() => setState(!state)} />
+                <div className='auth-action'>
+                    {
+                        userData ?
+                        <h4>{userData.name}</h4>
+                        : null
+                    }
+                    <HiMenuAlt3 className="burgerMenu" onClick={() => setState(!state)} />
+                </div>
             </div>
 
             <div className={`n-div ${state ? 'n-div-active' : ''}`} onClick={() => setState(!state)}>
@@ -104,9 +124,12 @@ const Navbar = () => {
                             <Link to='/courses'>
                                 <button className='btn1' onClick={() => setState(!state)}>Kurslar</button>
                             </Link>
-                            <Link to='/login'>
-                                <button className='btn2' onClick={() => setState(!state)}>Kirish</button>
-                            </Link>
+                            {
+                                userData ? null :
+                                <Link to='/login'>
+                                    <button className='btn2' onClick={() => setState(!state)}>Kirish</button>
+                                </Link>
+                            }
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import Header from './main/Header'
 import IntroCourse from './main/IntroCourse'
 import { handleMouseMove } from '../functions/MouseMove'
@@ -8,10 +8,12 @@ import FooterM from './main/FooterM'
 
 const Main = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
-
+  const handleMove = useCallback((e) => {
+    handleMouseMove(e, setPosition)
+  }, [])
   return (
     <>
-      <div className="main" onMouseMove={(e) => handleMouseMove(e, setPosition)}>
+      <div className="main" onMouseMove={handleMove}>
         <Header position={position} />
         <IntroCourse />
         <WhyCourses />
