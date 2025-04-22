@@ -194,6 +194,32 @@
                     align-items: flex-end;
                 }
             }
+            .progress__info{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: calc(var(--index)*0.5);
+
+                .progress{
+                    width: 100%;
+                    height: calc(var(--index)*0.5);
+                    border-radius: calc(var(--index)*6);
+                    overflow: hidden;
+                    background-color: var(--border-color);
+
+                    .progress__progress{
+                        width: 50%;
+                        height: 100%;
+                        border-radius: calc(var(--index)*6);
+                        background-color: var(--main-color);
+                    }
+                }
+
+                p{
+                    font-size: calc(var(--index)*0.8);
+                }
+            }
         }
     }
 }
