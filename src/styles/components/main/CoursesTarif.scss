@@ -1,0 +1,186 @@
+.coursesTarif {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: calc(var(--index)*1.5) calc(var(--index)*2);
+    gap: calc(var(--index)*1.5);
+    position: relative;
+    z-index: 3;
+    background-color: var(--util-bg-color);
+    align-items: center;
+}
+
+.coursesTarif__text{
+    width: 100%;
+    text-align: center;
+
+    h1{
+        font-size: calc(var(--index)*4);
+        font-weight: 400;
+        font-family: var(--util-font);
+        color: var(--other-text-color);
+
+        span{
+            font-weight: 400;
+            color: var(--main-text-color);
+            font-family: var(--util-font);
+        }
+    }
+
+    p{
+        font-size: calc(var(--index)*1);
+        color: var(--util-text-color);
+        font-weight: 500;
+        font-family: var(--other-font);
+    }
+}
+
+.coursesTarif__tarifs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--index)*2);
+
+    .coursesTarif__tarif{
+        background-color: transparent;
+        border: calc(var(--index)*0.15) solid var(--main-text-color);
+        padding: calc(var(--index)*1.1) calc(var(--index)*1.2);
+        border-radius: calc(var(--index)*1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: calc(var(--index)*1);
+
+        .moduls {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: calc(var(--index)*0.7);
+
+            .modul {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: calc(var(--index)*0.5);
+
+                h5{
+                    font-size: calc(var(--index)*0.9);
+                    font-weight: 700;
+                    color: var(--other-text-color);
+                    font-family: "Poppins", sans-serif;
+                }
+
+                .what-have {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: calc(var(--index)*0.2);
+
+                    p{
+                        font-family: "Poppins", sans-serif;
+                        color: var(--other-text-color);
+                        font-size: calc(var(--index)*0.9);
+                        font-weight: 400;
+                        display: flex;
+                        align-items: flex-start;
+                        gap: calc(var(--index)*0.3);
+                        
+                        img {
+                            width: calc(var(--index)*1);
+                            transform: translateY(18%);
+                        }
+                    }
+                }
+
+            }
+        }
+
+        h1{
+            font-size: calc(var(--index)*2.4);
+            font-weight: 400;
+            color: var(--other-text-color);
+            font-family: var(--util-font);
+            align-self: flex-start;
+        }
+
+        span {
+            color: var(--main-text-color);
+            font-family: "Big Shoulders", sans-serif;
+            font-weight: 400;
+            font-size: calc(var(--index)*2.4);
+        }
+
+        button {
+            color: var(--other-text-color);
+            font-size: calc(var(--index)*1.1);
+            font-weight: 700;
+            font-family: var(--main-font);
+            text-transform: uppercase;
+            width: 100%;
+            height: calc(var(--index)*3);
+            border: calc(var(--index)*0.1) solid var(--main-text-color);
+            border-radius: calc(var(--index)*0.8);
+            cursor: pointer;
+            transition: 0.25s ease;
+
+            &:hover{
+                background-color: var(--main-text-color);
+                color: var(--bg-color);
+            }
+        }
+
+        &:nth-child(2){
+            background-color: var(--bg-color);
+            padding: calc(var(--index)*1.1) calc(var(--index)*1.8);
+            h1{
+                color: var(--main-text-color);
+                font-size: calc(var(--index)*4);
+                align-self: center;
+                text-align: center;
+            }
+
+            button{
+                background: linear-gradient(180deg, #50EFD8 0%, #00917C 100%);
+                color: var(--any-text-color);
+                border: none;
+
+                &:hover {
+                    background: linear-gradient(180deg, #50EFD8 0%, #00917C 100%);
+                    color: var(--any-text-color);
+                    box-shadow: 0 0 calc(var(--index)*0.5) rgba(0, 145, 124, 0.6);
+                    transform: translateY(calc(var(--index)*-0.1));
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 730px) {
+    .coursesTarif__tarifs {
+        flex-direction: column;
+        justify-content: flex-start;
+        .coursesTarif__tarif {
+            h1{
+                font-size: calc(var(--index)*3);
+            }
+            .moduls {
+                .modul {
+                    h5 {
+                        font-size: calc(var(--index)*1.5);
+                    }
+
+                    .what-have {
+                        p{
+                            font-size: calc(var(--index)*1.5);
+                            gap: calc(var(--index)*0.5);
+                            img{
+                                width: calc(var(--index)*1.5);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

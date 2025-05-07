@@ -1,4 +1,4 @@
-.bought-courses{
+.bought-courses {
     width: 100%;
     height: auto;
     display: flex;
@@ -7,7 +7,7 @@
     gap: calc(var(--index)*2);
 }
 
-.course__info{
+.course__info {
     width: 100%;
     height: auto;
     display: flex;
@@ -18,7 +18,7 @@
     position: relative;
     background-color: var(--other-bg-color);
 
-    &::after{
+    &::after {
         content: "";
         position: absolute;
         width: calc(var(--index)*0.15);
@@ -29,25 +29,25 @@
     }
 }
 
-.course__info-img{
+.course__info-img {
     width: 47%;
-    height: calc(var(--index)*16);
+    height: calc(var(--index)*18);
     overflow: hidden;
     cursor: pointer;
 
-    img{
+    img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         transition: 0.25s ease;
 
-        &:hover{
+        &:hover {
             transform: scale(1.1);
         }
     }
 }
 
-.course__info-info{
+.course__info-info {
     width: 47%;
     height: 100%;
     display: flex;
@@ -55,25 +55,26 @@
     align-items: flex-start;
     justify-content: center;
     gap: calc(var(--index)*1.1);
-    padding-right: calc(var(--index)*2);
+    padding: calc(var(--index)*2);
+    padding-left: 0;
 
-    .spec{
+    .spec {
         width: 100%;
         display: grid;
         grid-template-columns: auto 1fr auto;
         gap: calc(var(--index)*0.2);
 
-        .dots{
+        .dots {
             width: 100%;
             border-bottom: calc(var(--index)*0.16) dotted rgba(0, 0, 0, 0.425);
         }
 
-        p{
+        p {
             font-size: calc(var(--index)*1);
         }
     }
 
-    .progress__info{
+    .progress__info {
         width: 100%;
         height: auto;
         display: flex;
@@ -82,18 +83,19 @@
         gap: calc(var(--index)*0.5);
         padding: calc(var(--index)*0.5) 0;
         padding-bottom: 0;
-        p{
+
+        p {
             font-size: calc(var(--index)*0.8);
         }
 
-        .progress{
+        .progress {
             width: 100%;
             height: calc(var(--index)*0.5);
             border-radius: calc(var(--index)*6);
             overflow: hidden;
             background-color: var(--border-color);
-    
-            .progress__progress{
+
+            .progress__progress {
                 width: 50%;
                 height: 100%;
                 border-radius: calc(var(--index)*6);
@@ -101,10 +103,9 @@
             }
         }
     }
-
 }
 
-.bought__courses{
+.bought__courses {
     width: 100%;
     height: auto;
     display: flex;
@@ -112,12 +113,12 @@
     align-items: flex-start;
     gap: calc(var(--index)*1.3);
 
-    h1{
+    h1 {
         font-size: calc(var(--index)*2);
     }
 }
 
-.bough__courses-courses{
+.bought__courses-courses {
     width: 100%;
     height: auto;
     display: grid;
@@ -127,7 +128,7 @@
     border-radius: calc(var(--index)*0.5);
     padding: calc(var(--index)*1.3);
 
-    .bough__courses-div{
+    .bought__courses-div {
         width: 100%;
         height: auto;
         display: flex;
@@ -138,22 +139,24 @@
         border-radius: calc(var(--index)*0.5);
         background-color: var(--bg-color);
 
-        .bought__courses-img{
+        .bought__courses-img {
             width: 100%;
             height: calc(var(--index)*10);
             overflow: hidden;
 
-            img{
+            img {
                 width: 100%;
                 height: 100%;
                 transition: 0.25s ease;
                 object-fit: cover;
-                &:hover{
+
+                &:hover {
                     transform: scale(1.1);
                 }
             }
         }
-        .bought__courses__container{
+
+        .bought__courses__container {
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -161,11 +164,11 @@
             gap: calc(var(--index)*1);
             padding: calc(var(--index)*1);
 
-            h3{
+            h3 {
                 font-size: calc(var(--index)*1.3);
             }
-    
-            .bought__courses-info{
+
+            .bought__courses-info {
                 width: 100%;
                 height: auto;
                 padding: calc(var(--index)*0.8);
@@ -175,40 +178,46 @@
                 border-radius: calc(var(--index)*0.25);
 
                 .bought__due-date,
-                .bought__courses-videos{
+                .bought__courses-videos {
                     display: flex;
                     flex-direction: column;
                     align-items: flex-start;
                     gap: calc(var(--index)*0.8);
-    
-                    p{
+
+                    p {
                         font-size: calc(var(--index)*0.9);
                         font-weight: 500;
                     }
 
-                    p:nth-child(1){
+                    p:nth-child(1) {
                         color: var(--main-color);
                     }
                 }
-                .bought__courses-videos{
+
+                .bought__courses-videos {
                     align-items: flex-end;
+                    
+                    p{
+                        text-align: end;
+                    }
                 }
             }
-            .progress__info{
+
+            .progress__info {
                 width: 100%;
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
                 gap: calc(var(--index)*0.5);
 
-                .progress{
+                .progress {
                     width: 100%;
                     height: calc(var(--index)*0.5);
                     border-radius: calc(var(--index)*6);
                     overflow: hidden;
                     background-color: var(--border-color);
 
-                    .progress__progress{
+                    .progress__progress {
                         width: 50%;
                         height: 100%;
                         border-radius: calc(var(--index)*6);
@@ -216,7 +225,7 @@
                     }
                 }
 
-                p{
+                p {
                     font-size: calc(var(--index)*0.8);
                 }
             }
@@ -224,49 +233,95 @@
     }
 }
 
+@media (max-width: 700px) {
+    .bought__courses-courses {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 560px) {
-    .course__info{
+    .course__info {
         width: 80%;
         flex-direction: column;
         gap: calc(var(--index)*2);
 
-        &::after{
+        &::after {
             display: none;
         }
     }
-    .course__info-img{
+
+    .course__info-img {
         width: 100%;
     }
 
-    .course__info-info{
+    .course__info-info {
         width: 85%;
-        padding-right: 0;
+        padding: 0;
         padding-bottom: calc(var(--index)*1.3);
         gap: calc(var(--index)*2);
-        .spec{
-            .dots{
+
+        .spec {
+            .dots {
                 border-bottom: calc(var(--index)*0.19) dotted rgba(0, 0, 0, 0.425);
             }
-            p{
+
+            p {
                 font-size: calc(var(--index)*1.2);
             }
         }
 
-        .progress__info{
+        .progress__info {
             gap: calc(var(--index)*1.3);
-            p{
+
+            p {
                 font-size: calc(var(--index)*1.3);
             }
 
-            .progress{
+            .progress {
                 height: calc(var(--index)*0.8);
             }
         }
     }
 }
 
-@media (max-width: 330px) {
-    .course__info{
+@media (max-width: 340px) {
+    .course__info {
         width: 100%;
+    }
+
+    .bought__courses-courses {
+        grid-template-columns: repeat(1, 1fr);
+
+        .bought__courses-div {
+            .bought__courses__container {
+                gap: calc(var(--index)*2.3);
+
+                .bought__courses-info {
+
+                    .bought__due-date,
+                    .bought__courses-videos {
+                        gap: calc(var(--index)*2);
+
+                        p {
+                            font-size: calc(var(--index)*1.3);
+                        }
+                    }
+                }
+
+                .progress__info {
+                    .progress {
+                        height: calc(var(--index)*0.8);
+                    }
+
+                    p {
+                        font-size: calc(var(--index)*1.3);
+                    }
+                }
+
+                h3 {
+                    font-size: calc(var(--index)*2);
+                }
+            }
+        }
     }
 }

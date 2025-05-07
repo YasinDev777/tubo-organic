@@ -2,41 +2,40 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { fetchCourses } from '../../redux/slices/coursesSlice'
-import { GetUserCourses } from '../../functions/firebaseCourse/FirebaseCourses'
+import useGetUserCourses from '../../functions/firebaseCourse/FirebaseCourses'
+import Loader from '../../components/Loader'
+import { getDate } from '../../utils/GetDate'
+import { FindLastCourse } from '../../utils/FindLastCourse'
 const BoughtCourses = () => {
+  const { allCourses, loading, error } = useGetUserCourses()
   const dispatch = useDispatch()
-  const { allCourses, error } = GetUserCourses()
+  const [currentCourse, setCurrentCourse] = useState('')
+  const storageCourse = localStorage.getItem('currentCourse')
+  useEffect(() => {
+    if (allCourses.length > 0) {
+      setCurrentCourse(storageCourse || allCourses[0]?.course_name)
+    }
+  }, [allCourses, storageCourse])
+
+  const FindedCourse = FindLastCourse(allCourses, currentCourse)
 
   useEffect(() => {
     dispatch(fetchCourses())
-  }, [dispatch, allCourses.length])
-  
-  const getDate = (due_date) => {
-    const now = Date.now()
-    const diff = due_date - now
-
-    if (diff <= 0) return 'Срок истёк'
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24))
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24)
-    const minutes = Math.floor((diff / (1000 * 60)) % 60)
-
-    return days ? `${days}kun` : hours ? `${hours} soat` : `${minutes} daqiqa`
-  }
+  }, [dispatch])
 
   return (
     <div className="bought-courses">
       <div className="course__info">
         <div className="course__info-img">
-          <Link to='#'>
-            <img src="https://i.pinimg.com/736x/e6/81/98/e681983c75adf1a8fb1eedced9cf7e35.jpg" alt="pchini" />
+          <Link to={`/course/${FindedCourse?.course_name}`}>
+            <img src={FindedCourse?.image_url} alt={FindedCourse?.course_name} />
           </Link>
         </div>
         <div className="course__info-info">
           <div className="spec">
             <p>Kurs:</p>
             <div className="dots"></div>
-            <p>Organic pchini cooking</p>
+            <p>{FindedCourse?.course_name}</p>
           </div>
 
           <div className="spec">
@@ -60,7 +59,7 @@ const BoughtCourses = () => {
           <div className="spec">
             <p>Kurs muddati</p>
             <div className="dots"></div>
-            <p>Ko'ngilga siqquncha</p>
+            <p>{getDate(FindedCourse?.due_date)}</p>
           </div>
 
           <div className="progress__info">
@@ -76,12 +75,16 @@ const BoughtCourses = () => {
       <div className="bought__courses">
         <h1>Mening Kurslarim</h1>
 
-        {!allCourses ? <p>Loading...</p> :
-          <div className="bough__courses-courses">
+        {loading ? (
+          <Loader />
+        ) : (
+          <div className="bought__courses-courses">
             {allCourses.map((item) => (
-              <div className='bough__courses-div' key={item.course_id}>
+              <div className='bought__courses-div' key={item.course_id}>
                 <div className="bought__courses-img">
-                  <img src={item.image_url} alt={item.course_name} />
+                  <Link to={`/course/${item.course_name}`} onClick={() => setCurrentCourse(item.course_name)}>
+                    <img src={item.image_url} alt={item.course_name} />
+                  </Link>
                 </div>
                 <div className="bought__courses__container">
                   <h3>{item.course_name}</h3>
@@ -104,7 +107,9 @@ const BoughtCourses = () => {
                 </div>
               </div>
             ))}
-          </div>}
+          </div>
+        )}
+
       </div>
     </div>
   )

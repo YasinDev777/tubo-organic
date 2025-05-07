@@ -97,6 +97,9 @@
 
         .half-price {
             align-items: flex-end;
+            p {
+                text-align: end;
+            }
         }
     }
 }

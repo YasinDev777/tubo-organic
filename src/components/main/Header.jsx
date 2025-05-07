@@ -1,45 +1,72 @@
-import React, { memo } from "react";
-import calendarIcon from "../../assets/calendar.png";
-import introImage from "../../assets/intro-img.png";
-import { Link } from "react-router-dom";
+import React from 'react'
+import logo from '../../assets/logo/logo.png'
+import calendarIcon from '../../assets/vectors/calendar-days.png'
+import radioIcon from '../../assets/vectors/radio.svg'
+import yellowStar from '../../assets/vectors/yellow-star.svg'
+import iceCream from '../../assets/vectors/purepng.com-ice-creamfood-ice.svg'
+import greenStar from '../../assets/vectors/thin.svg'
+const Header = () => {
 
-const Header = memo(({ position }) => {
     return (
-        <header>
-            <div className="header">
-                <div className="intro">
-                    <div className="intro-div">
-                        <div className="ico">
-                            <img src={calendarIcon} alt="icon of calendar" />
-                        </div>
-                        <h3>Hozirdan boshlang</h3>
+        <div className='header'>
+            <div className="hero__header">
+                <div className="nav">
+                    <div className="logo">
+                        <img src={logo} alt="logo" />
                     </div>
-                    <div className="intro-tex">
-                        <div className="main-intro-tex">
-                            <h1>
-                                Kurs «<span>Tubo Organic</span>»
-                            </h1>
-                            <p>Asosiy xamirturushsiz non yopish</p>
+                    <div className="date">
+                        <div className="rad">
+                            <img src={calendarIcon} alt="calendar-icon" />
                         </div>
-                        <h3>Birinchi noningni atigi bir hafta ichida pishir!</h3>
-                        <Link to='/courses'>
-                            <button className="intro-tex-btn">O'rganish</button>
-                        </Link>
+                        <div className="date-tex">
+                            <p>10-may <span>|</span> 20:00 da</p>
+                            <i>Onlayn</i>
+                        </div>
                     </div>
                 </div>
-                <div className="intro-img">
-                    <img
-                        src={introImage}
-                        alt="introImage"
-                        style={{
-                            left: `${position.x}%`,
-                            top: `${position.y}%`,
-                        }}
-                    />
+                <div className="header__intro">
+                    <div className="header__intro__container">
+                        <div className="live-presentation">
+                            <div className="radio-icon">
+                                <img src={radioIcon} alt="radio icon" />
+                            </div>
+                            <p>ONLAYN TAQDIMOT</p>
+                        </div>
+                        <div className="deadline">
+                            <div className="wrapper">
+                                <h3>ATIGI 15 KUN ICHIDA</h3>
+                            </div>
+                            <div className="deadline__star">
+                                <img src={yellowStar} alt="yellowStar" />
+                            </div>
+                        </div>
+                        <h1 className='intro__h1'>ORGANIK TAOMLAR BO‘YICHA MUTAXASSISGA AYLANING!</h1>
+                        <div className="ad-intro">
+                            <img src={iceCream} alt="iceCream" />
+                            <p><span>TABIIY MUZQAYMOQ kursini</span> bonusga oling!</p>
+                        </div>
+                        <div className="header__buttons">
+                            <button className='header__btn1'>
+                                <p>
+                                    JOYNI BAND QILISH
+                                </p>
+                            </button>
+                            <button className='header__btn2'>KURSLARNI KO’RISH</button>
+                        </div>
+                    </div>
+                    <div className="header__intro__image"></div>
+                    <div className="shadow__header"></div>
+                    <div className="greenStar">
+                        <img src={greenStar} alt="greenStar" />
+                    </div>
+                    <div className="intro__texts">
+                        <i>-Dildora Shukurullayevna</i>
+                        <p>17 yillik tajribaga ega <span>konditer</span></p>
+                    </div>
                 </div>
             </div>
-        </header>
-    );
-});
+        </div>
+    )
+}
 
-export default Header;
+export default Header

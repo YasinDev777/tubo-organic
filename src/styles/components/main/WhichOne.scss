@@ -1,0 +1,186 @@
+.whichOne{
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 4;
+    background-color: var(--util-bg-color);
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--index)*2.2);
+}
+
+.paperImage{
+    width: 100%;
+    height: calc(var(--index)*6);
+    background: url("../../../assets/backgrounds/paper.png") no-repeat top/cover;
+    position: relative;
+    z-index: 4;
+}
+
+.whichOne__tex{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: calc(var(--index)*0.8);
+
+    h1{
+        font-size: calc(var(--index)*3.8);
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 400;
+        color: var(--other-text-color);
+
+        span{
+            color: var(--main-text-color);
+            font-family: "Bebas Neue", sans-serif;
+        }
+    }
+
+    p{
+        font-size: calc(var(--index)*0.9);
+        font-family: var(--other-font);
+        color: var(--util-text-color);
+        font-weight: 500;
+        width: calc(var(--index)*28);
+
+        span{
+            font-weight: 700;
+            color: var(--other-text-color);
+        }
+    }
+}
+
+.whichOne__cards {
+    width: 100%;
+    height: auto;
+
+    .red-line {
+        width: 100%;
+        height: calc(var(--index)*9);
+        background: url('../../../assets/vectors/Line-6.svg') no-repeat center/cover;
+        position: absolute;
+        top: 54%;
+        transform: translateY(-50%);
+    }
+    .whichOne__cards__container{
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        gap: calc(var(--index)*2.5);
+        padding: calc(var(--index)*1) calc(var(--index)*2.5);
+
+        .whichOne__card{
+            width: calc(var(--index)*19);
+            height: calc(var(--index)*15);
+            background: var(--main-text-color);
+            padding: calc(var(--index)*0.8);
+            padding-bottom: 0;
+            padding-right: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: calc(var(--index)*1);
+            overflow: hidden;
+            border-radius: calc(var(--index)*0.5);
+            position: relative;
+
+            .whichOne__card-text{
+                display: flex;
+                align-items: center;
+                gap: calc(var(--index)*0.3);
+                
+                h1{
+                    font-size: calc(var(--index)*2.8);
+                    font-weight: 400;
+                    font-family: "Bebas Neue", sans-serif;
+                    color: var(--any-text-color);
+                }
+                p{
+                    font-size: calc(var(--index)*1.1);
+                    font-weight: 600;
+                    font-family: "Poppins", sans-serif;
+                    color: var(--any-text-color);
+                }
+            }
+
+            .whichOne__card-textImg{
+                display: flex;
+                align-items: flex-end;
+                height: 100%;
+
+                img{
+                    width: calc(var(--index)*8);
+                    height: calc(var(--index)*7);
+                    position: absolute;
+                    right: 0;
+                    object-fit: contain;
+                }
+
+                p{
+                    width: calc(var(--index)*12);
+                    font-size: calc(var(--index)*0.9);
+                    font-family: var(--other-font);
+                    font-weight: 500;
+                    color: var(--any-text-color);
+                    align-self: stretch;
+                    flex: 1;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 850px) {
+    .whichOne__cards {
+        .whichOne__cards__container {
+            gap: calc(var(--index)*1);
+            .whichOne__card {
+                height: calc(var(--index)*17);
+            }
+        }
+    }
+}
+
+@media (max-width: 580px) {
+    .whichOne__cards {
+        .red-line {
+            top: 50%;
+            transform: translateY(-50%) rotate(80deg);
+            display: none;
+        }
+        .whichOne__cards__container {
+            gap: calc(var(--index)*2);
+            flex-direction: column;
+            align-items: center;
+            .whichOne__card {
+                width: calc(var(--index)*25);
+                height: calc(var(--index)*17);
+
+                .whichOne__card-text {
+                    gap: calc(var(--index)*1);
+                    h1 {
+                        font-size: calc(var(--index)*3.4);
+                    }
+                    p{
+                        font-size: calc(var(--index)*1.4);
+                    }
+                }
+
+                .whichOne__card-textImg {
+                    p{
+                        width: calc(var(--index)*16);
+                        font-size: calc(var(--index)*1.2);
+                    }
+
+                    img {
+                        width: calc(var(--index)*9);
+                        height: calc(var(--index)*8);
+                    }
+
+                }
+            }
+        }
+    }
+}

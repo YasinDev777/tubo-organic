@@ -1,194 +1,119 @@
 .AboutPov {
     width: 100%;
     height: auto;
+    padding: 0 calc(var(--index)*2.5);
+    padding-top: calc(var(--index)*2);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    gap: calc(var(--index)*2);
-    padding: calc(var(--index)*1.8) 0;
+    gap: calc(var(--index)*1.8);
+    background-color: var(--util-bg-color);
+    position: relative;
+    z-index: 3;
+}
+
+.about__text {
+    text-align: center;
 
     h1 {
-        font-size: calc(var(--index)*2.2);
-        font-weight: 700;
+        font-size: calc(var(--index)*4);
+        font-family: var(--util-font);
+        color: var(--other-text-color);
+        font-weight: 400;
+
+        span {
+            color: var(--main-text-color);
+            font-family: var(--util-font);
+            font-weight: 400;
+        }
+    }
+
+    p {
+        font-size: calc(var(--index)*0.9);
+        color: var(--util-text-color);
+        font-weight: 500;
+        font-family: var(--other-font);
     }
 }
 
-.PovInfo {
+.about__container {
     width: 100%;
     height: auto;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    background: url('../../../assets/backgrounds/justBg.png') center/cover no-repeat;
+    border: calc(var(--index)*0.2) solid #00917C;
+    border-radius: calc(var(--index)*0.5);
 
-    .PovImage {
-        width: 50%;
+    .about__container2 {
+        width: 100%;
+        height: auto;
+        border-radius: calc(var(--index)*0.35);
+        background: #00917CB2;
         display: flex;
-        flex-direction: column;
+        justify-content: flex-end;
         align-items: flex-start;
-        justify-content: flex-start;
+        gap: calc(var(--index)*1.5);
         position: relative;
 
-        img {
-            border-radius: calc(var(--index)*0.1);
-            box-shadow: calc(var(--index)*0.8) calc(var(--index)*-0.8) calc(var(--index)*0.6) rgba(0, 0, 0, 0.274);
-            object-fit: cover;
-        }
-
-        .firstPovPart {
-            width: 100%;
-            height: calc(var(--index)*23);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: calc(var(--index)*1);
-
-            img {
-                width: 100%;
-                height: 100%;
-
-                &:nth-child(2) {
-                    height: 65%;
-                }
-            }
-        }
-
-        .secondPovPart {
-            width: calc(var(--index)*17.5);
-            height: calc(var(--index)*12);
+        .pov__image{
+            width: calc(var(--index)*17);
+            height: auto;
             position: absolute;
-            bottom: calc(var(--index)*-9);
-            left: 50%;
-            transform: translateX(-60%);
+            bottom: calc(var(--index)*-0.2);
+            left: 0;
 
-            img {
+            img{
                 width: 100%;
-                height: 100%;
             }
         }
-    }
-}
 
-.PovPrefers {
-    width: 43%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: calc(var(--index)*1.2);
-
-    h3 {
-        text-align: center;
-        font-size: calc(var(--index)*1.1);
-        font-weight: 600;
-    }
-
-    .prefers {
-
-        ul {
+        .pov__info{
+            width: calc(var(--index)*42);
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            justify-content: flex-start;
-            gap: calc(var(--index)*1.2);
-
-            li {
-                font-size: calc(var(--index)*0.9);
-                line-height: calc(var(--index)*1.2);
-
-                span {
-                    font-weight: 600;
-                }
-            }
-        }
-    }
-}
-
-@media (max-width: 870px) {
-    .PovInfo {
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        gap: calc(var(--index)*2);
-
-        .PovImage {
-            width: 90%;
-            height: calc(var(--index)*35);
-
-            .firstPovPart {
-                gap: calc(var(--index)*1.5);
-            }
-
-            .secondPovPart {
-                bottom: calc(var(--index)*0.5);
-                width: calc(var(--index)*20.5);
-                height: calc(var(--index)*14);
-            }
-        }
-
-        .PovPrefers {
-            width: 80%;
-
-            h3 {
-                font-size: calc(var(--index)*1.8);
-            }
-
-            .prefers {
-                ul {
-                    gap: calc(var(--index)*1.6);
-
-                    li {
-                        font-size: calc(var(--index)*1.2);
-                        line-height: calc(var(--index)*1.8);
-                    }
-                }
-            }
-        }
-    }
-}
-
-@media (max-width: 600px) {
-    .PovInfo {
-        .PovImage {
-            width: 95%;
-            height: auto;
-            gap: calc(var(--index)*1.5);
-
-            .firstPovPart {
-                img {
-                    width: 100%;
-                    height: 100%;
-
-                    &:nth-child(2) {
-                        height: 100%;
-                    }
-                }
-            }
-
-            .secondPovPart {
-                width: 100%;
-                position: relative;
-                bottom: 0;
-                left: 0;
-                transform: translateX(0);
-                height: calc(var(--index)*20);
-            }
-        }
-
-        .PovPrefers {
-            width: 95%;
             gap: calc(var(--index)*1.8);
+            padding: calc(var(--index)*1.5) 0;
 
-            h3 {
-                font-size: calc(var(--index)*2.3);
+            .info__title{
+                i{
+                    transform: translateX(-5%);
+                    display: inline-block;
+                    font-size: calc(var(--index)*3);
+                    color: var(--any-text-color);
+                    font-weight: 400;
+                    font-family: "MonteCarlo", cursive;
+                }
+
+                p{
+                    font-size: calc(var(--index)*1);
+                    color: var(--any-text-color);
+                    font-weight: 700;
+                    font-family: var(--other-font);
+                }
             }
 
-            .prefers {
-                ul {
-                    gap: calc(var(--index)*2);
+            .info__subtitle{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: calc(var(--index)*0.6);
 
-                    li {
-                        font-size: calc(var(--index)*1.5);
-                        line-height: calc(var(--index)*2.2);
+                .subtitle{
+                    display: flex;
+                    align-items: center;
+
+                    p{
+                        font-size: calc(var(--index)*0.9);
+                        font-weight: 600;
+                        font-family: "Poppins", sans-serif;
+                        color: var(--any-text-color);
+                        display: flex;
+                        align-items: center;
+                        gap: calc(var(--index)*0.5);
+                        img {
+                            width: calc(var(--index)*1);
+                        }
                     }
                 }
             }
@@ -196,21 +121,50 @@
     }
 }
 
-@media (max-width: 414px) {
-    .PovInfo {
-        .PovImage {
-            width: 100%;
+@media (max-width: 1115px) {
+    .about__container {
+        .about__container2{
 
-            .firstPovPart {
-                height: calc(var(--index)*15);
-
-                img {
-                    object-fit: cover;
-                }
+            .pov__image {
+                display: none;
             }
+            .pov__info {
+                width: calc(var(--index)*36);
+            }
+        }
+    }
+}
+@media (max-width: 900px) {
+    .about__container {
+        .about__container2{
+            .pov__info {
+                width: calc(var(--index)*30);
+            }
+        }
+    }
+}
 
-            .secondPovPart {
-                height: calc(var(--index)*15);
+@media (max-width: 760px) {
+    .about__container {
+        .about__container2{
+            .pov__info {
+                width: 100%;
+                padding: calc(var(--index)*1.5);
+
+                .info__subtitle {
+                    .subtitle {
+                        align-items: flex-start;
+
+                        p{
+                            align-items: flex-start;
+
+                            img {
+                                transform: translateY(40%);
+                                display: block;
+                            }
+                        }
+                    }
+                }
             }
         }
     }

@@ -1,0 +1,41 @@
+.PopUp{
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 6;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.63);
+}
+
+.PopUp__container{
+    width: calc(var(--index)*36);
+    height: calc(var(--index)*23);
+    border-radius: calc(var(--index)*0.8);
+    padding: calc(var(--index)*1.2);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: calc(var(--index)*0.8);
+    background-color: var(--util-bg-color);
+
+    svg {
+        font-size: calc(var(--index)*2.3);
+        fill: var(--other-text-color);
+        cursor: pointer;
+    }
+
+    .video__course {
+        width: 100%;
+        height: 100%;
+
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

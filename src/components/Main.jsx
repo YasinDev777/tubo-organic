@@ -1,26 +1,28 @@
-import React, { useCallback, useState } from 'react'
-import Header from './main/Header'
-import IntroCourse from './main/IntroCourse'
-import { handleMouseMove } from '../functions/MouseMove'
-import WhyCourses from './main/WhyCourses'
-import AboutPov from './main/AboutPov'
-import FooterM from './main/FooterM'
-
+import React from "react";
+import Header from './main/Header';
+import WhichOne from "./main/WhichOne";
+import Paper from "./main/Paper";
+import AboutPov from './main/AboutPov';
+import CoursesTarif from "./main/coursesTarif";
+import Feedback from './main/Feedback';
+import BonusVideo from './main/BonusVideo'
+import Footer from "./main/Footer";
+import PopUp from "./main/PopUp";
+import { useSelector } from "react-redux";
 const Main = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const handleMove = useCallback((e) => {
-    handleMouseMove(e, setPosition)
-  }, [])
+  const isOpen = useSelector((state) => state.popUp.isOpen)
   return (
-    <>
-      <div className="main" onMouseMove={handleMove}>
-        <Header position={position} />
-        <IntroCourse />
-        <WhyCourses />
-        <AboutPov />
-      </div>
-      <FooterM />
-    </>
+    <div className='main'>
+      <Header />
+      <Paper />
+      <WhichOne />
+      <AboutPov />
+      <CoursesTarif />
+      <Feedback />
+      <BonusVideo />
+      <Footer />
+      {isOpen ? <PopUp /> : null }
+    </div>
   )
 }
 
