@@ -2,17 +2,18 @@ import { useSelector } from "react-redux";
 import React, { lazy, Suspense } from "react";
 import Loader from "./Loader";
 
+const Header = lazy(() => import('./main/Header'));
+const Paper = lazy(() => import('./main/Paper'));
+const WhichOne = lazy(() => import('./main/WhichOne'));
+const AboutPov = lazy(() => import('./main/AboutPov'));
+const CoursesTarif = lazy(() => import('./main/coursesTarif'));
+const Feedback = lazy(() => import('./main/Feedback'));
+const BonusVideo = lazy(() => import('./main/BonusVideo'));
+const Footer = lazy(() => import('./main/Footer'));
+const PopUp = lazy(() => import('./main/PopUp'));
+
 const Main = () => {
   const isOpen = useSelector((state) => state.popUp.isOpen)
-  const Header = lazy(() => import('./main/Header'));
-  const Paper = lazy(() => import('./main/Paper'));
-  const WhichOne = lazy(() => import('./main/WhichOne'));
-  const AboutPov = lazy(() => import('./main/AboutPov'));
-  const CoursesTarif = lazy(() => import('./main/coursesTarif'));
-  const Feedback = lazy(() => import('./main/Feedback'));
-  const BonusVideo = lazy(() => import('./main/BonusVideo'));
-  const Footer = lazy(() => import('./main/Footer'));
-  const PopUp = lazy(() => import('./main/PopUp'));
 
   return (
     <div className='main'>
@@ -48,7 +49,11 @@ const Main = () => {
         <Footer />
       </Suspense>
 
-      {isOpen ? <PopUp /> : null}
+      {isOpen ?
+      <Suspense fallback={''}>
+        <PopUp /> 
+      </Suspense> : null
+      }
     </div>
   )
 }

@@ -14,7 +14,7 @@ const BonusVideo = () => {
         <div className="BonusVideo__video">
             <p>Siz uchun maxsus video dars!</p>
             <h1>Ko‘ring, <br /> Sinab ko‘ring</h1>
-            <button onClick={() => dispatch(openPopUp())}><img src={play} alt='play' /></button>
+            <button onClick={() => dispatch(openPopUp())}><img src={play} alt='play' load='lazy' /></button>
             <video src={video} muted autoPlay loop></video>
         </div>
     </div>
