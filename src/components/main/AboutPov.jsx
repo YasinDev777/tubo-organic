@@ -11,7 +11,7 @@ const AboutPov = () => {
         <div className="about__container">
             <div className="about__container2">
                 <div className="pov__image">
-                    <img src={povImage} alt="povImage" />
+                    <img src={povImage} alt="povImage"  loading='lazy'/>
                 </div>
                 <div className="pov__info">
                     <div className="info__title">
@@ -20,13 +20,13 @@ const AboutPov = () => {
                     </div>
                     <div className="info__subtitle">
                         <div className="subtitle">
-                            <p> <img src={check} alt="check" /> “Tubo Organic” brendi, Tubo Maktabi, Onalar Klubi va bir nechta kurslar asoschisi.</p>
+                            <p> <img src={check} alt="check" loading='lazy' /> “Tubo Organic” brendi, Tubo Maktabi, Onalar Klubi va bir nechta kurslar asoschisi.</p>
                         </div>
                         <div className="subtitle">
-                            <p><img src={check} alt="check" /> Ona va bola salomatligini yaxshilash bo’yicha mutaxassis</p>
+                            <p><img src={check} alt="check" loading='lazy' /> Ona va bola salomatligini yaxshilash bo’yicha mutaxassis</p>
                         </div>
                         <div className="subtitle">
-                            <p><img src={check} alt="check" /> 17 yillik tajribaga ega konditer hamda tabiba</p>
+                            <p><img src={check} alt="check" loading='lazy' /> 17 yillik tajribaga ega konditer hamda tabiba</p>
                         </div>
                     </div>
                 </div>

@@ -20,7 +20,7 @@ const WhichOne = () => {
                     </div>
                     <div className="whichOne__card-textImg">
                         <p>– Organik va foydali alternativalar bilan ozish  yanada zavqliroq.</p>
-                        <img src={Qiz1} alt="Qiz1" />
+                        <img src={Qiz1} alt="Qiz1" loading='lazy' />
                     </div>
                 </div>
 
@@ -31,7 +31,7 @@ const WhichOne = () => {
                     </div>
                     <div className="whichOne__card-textImg">
                         <p>– Kam kaloriyali, shakarsiz shirinliklar bilan o'zingizni yengilroq va energiyali his qiling.</p>
-                        <img src={Qiz2} alt="Qiz2" />
+                        <img src={Qiz2} alt="Qiz2" loading='lazy' />
                     </div>
                 </div>
 
@@ -42,7 +42,7 @@ const WhichOne = () => {
                     </div>
                     <div className="whichOne__card-textImg">
                         <p>– Tanangizni toza energiya bilan to‘ldiring va o'zingizni har kuni baxtli his eting.</p>
-                        <img src={Qiz3} alt="Qiz3" />
+                        <img src={Qiz3} alt="Qiz3" loading='lazy' />
                     </div>
                 </div>
             </div>

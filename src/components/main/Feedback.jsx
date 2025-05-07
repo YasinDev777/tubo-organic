@@ -8,16 +8,16 @@ const Feedback = () => {
             <p>Hali ham shubhangiz bormi!? Bizda natijalar gapiradi!</p>
         </div>
         <div className="Feedback__image1">
-            <div className="Feedback__image1_img"><img src={feedBackImg} alt="feedBackImg" /></div>
-            <div className="Feedback__image1_img"><img src={feedBackImg} alt="feedBackImg" /></div>
-            <div className="Feedback__image1_img"><img src={feedBackImg} alt="feedBackImg" /></div>
-            <div className="Feedback__image1_img"><img src={feedBackImg} alt="feedBackImg" /></div>
+            <div className="Feedback__image1_img"><img src={feedBackImg} alt="feedBackImg" loading='lazy' /></div>
+            <div className="Feedback__image1_img"><img src={feedBackImg} alt="feedBackImg" loading='lazy' /></div>
+            <div className="Feedback__image1_img"><img src={feedBackImg} alt="feedBackImg" loading='lazy' /></div>
+            <div className="Feedback__image1_img"><img src={feedBackImg} alt="feedBackImg" loading='lazy' /></div>
         </div>
         <div className="Feedback__image2">
-            <div className="Feedback__image2_img"><img src={feedBackImg} alt="feedBackImg" /></div>
-            <div className="Feedback__image2_img"><img src={feedBackImg} alt="feedBackImg" /></div>
-            <div className="Feedback__image2_img"><img src={feedBackImg} alt="feedBackImg" /></div>
-            <div className="Feedback__image2_img"><img src={feedBackImg} alt="feedBackImg" /></div>
+            <div className="Feedback__image2_img"><img src={feedBackImg} alt="feedBackImg" loading='lazy' /></div>
+            <div className="Feedback__image2_img"><img src={feedBackImg} alt="feedBackImg" loading='lazy' /></div>
+            <div className="Feedback__image2_img"><img src={feedBackImg} alt="feedBackImg" loading='lazy' /></div>
+            <div className="Feedback__image2_img"><img src={feedBackImg} alt="feedBackImg" loading='lazy' /></div>
         </div>
     </div>
   )

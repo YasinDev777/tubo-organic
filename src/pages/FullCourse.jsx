@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import { fetchCourses } from '../redux/slices/coursesSlice'
 import useGetUserCourses from '../functions/firebaseCourse/FirebaseCourses'
-
+import Loader from '../components/Loader'
 const FullCourse = () => {
   const { id } = useParams()
   const dispatch = useDispatch()
@@ -11,84 +11,92 @@ const FullCourse = () => {
   const { allCourses, loading } = useGetUserCourses()
   const [isUserHave, setIsUserHave] = useState(null)
   const { data: courses = [], status: coursesStatus, error: coursesError } = useSelector(state => state.courses)
-  const currentCourseData = coursesStatus === 'success'
-    ? courses.find(item => item.course_name === id)
-    : null
+  const [currentCourse, setCurrentCourse] = useState([])
 
-  useEffect(() => {
-    if (user && coursesStatus === 'idle') {
-      dispatch(fetchCourses())
-    }
-  }, [dispatch, user, coursesStatus])
+    useEffect(() => {
+      if (coursesStatus === 'idle' || coursesStatus === 'error') {
+        dispatch(fetchCourses())
+      }
+    }, [dispatch, coursesStatus, user])    
     
 
   useEffect(() => {
     if (!loading && allCourses) {
-      const course = allCourses.find(course => course.course_name === id)
+      const course = allCourses.find(course => course.id === id)
       setIsUserHave(!!course)
     }
   }, [allCourses, coursesStatus, id])
 
-  console.log(coursesStatus)
+  useEffect(() => {
+    if (coursesStatus === 'success' && courses.length > 0 && id) {
+      const found = courses.find(c => c.id === id);
+      setCurrentCourse(found || null);
+    }
+  }, [coursesStatus, courses, id]);
+
   return (
     <div className='header__fullCourse'>
-      <div className="header__header">
-        <div className="header__text">
-          <h1>{id}</h1>
-          <p>{id}ni «<span>Tubo Organic</span>» platformasida Ko'p yillik tajribaga ega mutahassisdan o'rganing</p>
-          {
-            isUserHave ? (
-              <Link to={`/course/${id}`}>
-                <button>
-                  Ko'rish
-                </button>
-              </Link>
-            ) : (
-              <button>Sotib olish</button>
-            )
-          }
+      {coursesStatus === 'idle' ? <Loader /> : coursesStatus === 'success' && !currentCourse ? <p>Course Not Found</p> :
+      <>
+        <div className="header__header">
+          <div className="header__text">
+            <h1>{currentCourse?.course_name}</h1>
+            <p>{currentCourse?.course_name}ni «<span>Tubo Organic</span>» platformasida Ko'p yillik tajribaga ega mutahassisdan o'rganing</p>
+            {
+              isUserHave ? (
+                <Link to={`/course/${id}`}>
+                  <button>
+                    Ko'rish
+                  </button>
+                </Link>
+              ) : (
+                <button>Sotib olish</button>
+              )
+            }
+          </div>
+          <div className="header__image">
+            {
+              currentCourse && currentCourse?.image_url ?
+              <img src={currentCourse?.image_url || ''} alt={currentCourse?.course_name} loading='lazy' /> :
+              null
+            }
+          </div>
         </div>
-        <div className="header__image">
-          {
-            currentCourseData && currentCourseData.image_url ?
-            <img src={currentCourseData?.image_url || ''} alt={id} /> :
-            null
-          }
+        <div className="header__about__course">
+          <div className="about__course__title">
+            <h1>Nima uchun <span>{currentCourse?.course_name}</span> kursni tanlash kerak</h1>
+          </div>
+          <div className="about__course__info">
+            {
+              currentCourse?.why_this_course ?
+              <ul>
+                {
+                  currentCourse?.why_this_course.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))
+                }
+              </ul> : ''
+            }
+            {
+              isUserHave ? (
+                <Link to={`/course/${id}`}>
+                  <button>
+                    Ko'rish
+                  </button>
+                </Link>
+              ) : (
+                <button>Sotib olish</button>
+              )
+            }
+          </div>
         </div>
-      </div>
-      <div className="header__about__course">
-        <div className="about__course__title">
-          <h1>Nima uchun <span>{id}</span> kursni tanlash kerak</h1>
+        <div className="header__buy__course">
+          <h1></h1>
+          <div className="buy__course"></div>
+          <div className="buy__course__buttons"></div>
         </div>
-        <div className="about__course__info">
-          {
-            currentCourseData?.why_this_course ?
-            <ul>
-              {
-                currentCourseData?.why_this_course.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))
-              }
-            </ul> : ''
-          }
-          {
-            isUserHave ? (
-              <Link to={`/course/${id}`}>
-                <button>
-                  Ko'rish
-                </button>
-              </Link>
-            ) : (
-              <button>Sotib olish</button>
-            )
-          }
-        </div>
-      </div>
-      <div className="header__buy__course">
-        <h1></h1>
-        <div className="buy__course"></div>
-        <div className="buy__course__buttons"></div>
-      </div>
+      </>
+    }
     </div>
   )
 }

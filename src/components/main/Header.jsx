@@ -12,11 +12,11 @@ const Header = () => {
             <div className="hero__header">
                 <div className="nav">
                     <div className="logo">
-                        <img src={logo} alt="logo" />
+                        <img src={logo} alt="logo" loading='lazy' />
                     </div>
                     <div className="date">
                         <div className="rad">
-                            <img src={calendarIcon} alt="calendar-icon" />
+                            <img src={calendarIcon} alt="calendar-icon" loading='lazy' />
                         </div>
                         <div className="date-tex">
                             <p>10-may <span>|</span> 20:00 da</p>
@@ -28,7 +28,7 @@ const Header = () => {
                     <div className="header__intro__container">
                         <div className="live-presentation">
                             <div className="radio-icon">
-                                <img src={radioIcon} alt="radio icon" />
+                                <img src={radioIcon} alt="radio icon" loading='lazy' />
                             </div>
                             <p>ONLAYN TAQDIMOT</p>
                         </div>
@@ -37,7 +37,7 @@ const Header = () => {
                                 <h3>ATIGI 15 KUN ICHIDA</h3>
                             </div>
                             <div className="deadline__star">
-                                <img src={yellowStar} alt="yellowStar" />
+                                <img src={yellowStar} alt="yellowStar" loading='lazy' />
                             </div>
                         </div>
                         <h1 className='intro__h1'>ORGANIK TAOMLAR BO‘YICHA MUTAXASSISGA AYLANING!</h1>
@@ -57,7 +57,7 @@ const Header = () => {
                     <div className="header__intro__image"></div>
                     <div className="shadow__header"></div>
                     <div className="greenStar">
-                        <img src={greenStar} alt="greenStar" />
+                        <img src={greenStar} alt="greenStar" loading='lazy' />
                     </div>
                     <div className="intro__texts">
                         <i>-Dildora Shukurullayevna</i>

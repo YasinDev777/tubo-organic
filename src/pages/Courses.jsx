@@ -19,9 +19,9 @@ const Courses = () => {
         <div className='courses-div'>
           { 
             courses.map((item, index) => (
-              <div className="div-courses" key={item.course_id}>
+              <div className="div-courses" key={item.id}>
                 <div className="main-course-img">
-                  <Link to={`/courses/${item.course_name}`}>
+                  <Link to={`/courses/${item.id}`}>
                     <img src={item.image_url} alt={item.name} loading='lazy' />
                   </Link>
                 </div>
@@ -36,7 +36,7 @@ const Courses = () => {
                     <p>{item.half_price} so'm/oy</p>
                   </div>
                 </div>
-                <Link to={`/courses/${item.course_name}`}>
+                <Link to={`/courses/${item.id}`}>
                   <button>Batafsil</button>
                 </Link>
               </div>

@@ -181,7 +181,7 @@ const CoursesTarif = () => {
                     <div className='what-have'>
                       {
                         itemT.texnikalar_have.map((itemH, index) => (
-                          <p key={index}><img src={itemH.have ? circleCheck : circleX} alt="icon" /> {itemH.name}</p>
+                          <p key={index}><img src={itemH.have ? circleCheck : circleX} loading='lazy' alt="icon" /> {itemH.name}</p>
                         ))
                       }
                     </div>

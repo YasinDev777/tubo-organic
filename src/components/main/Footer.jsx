@@ -10,7 +10,7 @@ const Footer = () => {
             <div className="landing__footer__container2">
                 <div className="landing__footer__intro">
                     <div className="logo">
-                        <img src={logo} alt="logo" />
+                        <img src={logo} alt="logo" loading='lazy' />
                     </div>
                     <button>Platformaga kirish <CiLogin /></button>
                     <p>TUBO ORGANIC. <br /> 2025 © Barcha huquqlar himoyalangan.</p>

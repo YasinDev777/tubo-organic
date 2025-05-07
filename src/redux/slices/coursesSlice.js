@@ -10,7 +10,7 @@ export const fetchCourses = createAsyncThunk(
             return courses.data;
         }
         const querySnapshot = await getDocs(collection(db, 'courses'))
-        return querySnapshot.docs.map(doc => doc.data())
+        return querySnapshot.docs.map(doc => ({id: doc.id, ...doc.data()}))
     }
 )
 
