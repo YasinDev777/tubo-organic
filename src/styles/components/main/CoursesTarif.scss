@@ -111,22 +111,26 @@
             font-size: calc(var(--index)*2.4);
         }
 
-        button {
-            color: var(--other-text-color);
-            font-size: calc(var(--index)*1.1);
-            font-weight: 700;
-            font-family: var(--main-font);
-            text-transform: uppercase;
+        a {
             width: 100%;
-            height: calc(var(--index)*3);
-            border: calc(var(--index)*0.1) solid var(--main-text-color);
-            border-radius: calc(var(--index)*0.8);
-            cursor: pointer;
-            transition: 0.25s ease;
 
-            &:hover{
-                background-color: var(--main-text-color);
-                color: var(--bg-color);
+            button {
+                color: var(--other-text-color);
+                font-size: calc(var(--index)*1.1);
+                font-weight: 700;
+                font-family: var(--main-font);
+                text-transform: uppercase;
+                width: 100%;
+                height: calc(var(--index)*3);
+                border: calc(var(--index)*0.1) solid var(--main-text-color);
+                border-radius: calc(var(--index)*0.8);
+                cursor: pointer;
+                transition: 0.25s ease;
+    
+                &:hover{
+                    background-color: var(--main-text-color);
+                    color: var(--bg-color);
+                }
             }
         }
 
@@ -140,18 +144,23 @@
                 text-align: center;
             }
 
-            button{
-                background: linear-gradient(180deg, #50EFD8 0%, #00917C 100%);
-                color: var(--any-text-color);
-                border: none;
+            a {
+                width: 100%;
 
-                &:hover {
+                button{
                     background: linear-gradient(180deg, #50EFD8 0%, #00917C 100%);
                     color: var(--any-text-color);
-                    box-shadow: 0 0 calc(var(--index)*0.5) rgba(0, 145, 124, 0.6);
-                    transform: translateY(calc(var(--index)*-0.1));
+                    border: none;
+    
+                    &:hover {
+                        background: linear-gradient(180deg, #50EFD8 0%, #00917C 100%);
+                        color: var(--any-text-color);
+                        box-shadow: 0 0 calc(var(--index)*0.5) rgba(0, 145, 124, 0.6);
+                        transform: translateY(calc(var(--index)*-0.1));
+                    }
                 }
             }
+
         }
     }
 }

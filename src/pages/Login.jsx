@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { loginUsers } from '../functions/UsersLogin';
+import { IoMdArrowRoundBack } from "react-icons/io";
+import Carousel from '../components/Login/Carusel';
 const Login = () => {
   const [status, setStatus] = useState('Tokenni kiriting');
   const [statusColor, setStatusColor] = useState('');
@@ -34,19 +36,25 @@ const Login = () => {
   
   return (
     <div className='login'>
-      <div className="login-div">
-        <h1>Kirish</h1>
-        <div>
-          <label htmlFor="token" style={statusColor ? { color: statusColor } : undefined}>{status}</label>
-          <input 
-          type="text"
-          id='token'
-          style={statusColor ? { borderColor: statusColor } : undefined}
-          onChange={(e) => setInputValue(e.target.value)}
-          />
+      <div className="login__container">
+        <div className="back-button" onClick={() => navigate(-1)}>
+          <IoMdArrowRoundBack />
         </div>
-        <button onClick={handleLogin}>Kirish</button>
-        <p>Token olish uchun <Link to='https://t.me/tubo_manager'>Admin</Link> bilan bog'laning</p>
+        <Carousel className="Carousel" />
+        <div className="login-div">
+          <h1>Kirish</h1>
+          <div>
+            <label htmlFor="token" style={statusColor ? { color: statusColor } : undefined}>{status}</label>
+            <input 
+            type="text"
+            id='token'
+            style={statusColor ? { borderColor: statusColor } : undefined}
+            onChange={(e) => setInputValue(e.target.value)}
+            />
+          </div>
+          <button onClick={handleLogin}>Kirish</button>
+          <p>Token olish uchun <Link to='https://t.me/tubo_manager'>Admin</Link> bilan bog'laning</p>
+        </div>
       </div>
     </div>
   )

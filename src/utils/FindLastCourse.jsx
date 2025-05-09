@@ -1,6 +1,6 @@
-export const FindLastCourse = (data, course_name) => {
-    if (!course_name) return null;
-    const result = data.find((item) => item.course_name === course_name)
-    localStorage.setItem('currentCourse', course_name)
+export const FindLastCourse = (data, id) => {
+    if (!id) return null;
+    const result = data.find((item) => item.course_id === id)
+    localStorage.setItem('currentCourse', id)
     return result
-  }
+}

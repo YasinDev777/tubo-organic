@@ -2,6 +2,7 @@ import React from 'react'
 import Qiz1 from '../../assets/backgrounds/qis1.png'
 import Qiz2 from '../../assets/backgrounds/qis2.png'
 import Qiz3 from '../../assets/backgrounds/qis3.png'
+import Paper from './Paper'
 
 const WhichOne = () => {
   return (

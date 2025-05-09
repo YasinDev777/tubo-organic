@@ -2,6 +2,7 @@ import React from 'react'
 import logo from '../../assets/logo/logo2.png'
 import { FaYoutube, FaTelegram, FaInstagram } from "react-icons/fa";
 import { CiLogin } from "react-icons/ci";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -12,22 +13,28 @@ const Footer = () => {
                     <div className="logo">
                         <img src={logo} alt="logo" loading='lazy' />
                     </div>
-                    <button>Platformaga kirish <CiLogin /></button>
+                    <Link to='/login'>
+                        <button>Platformaga kirish <CiLogin /></button>
+                    </Link>
                     <p>TUBO ORGANIC. <br /> 2025 © Barcha huquqlar himoyalangan.</p>
                 </div>
                 <div className="landing__footer__questions">
                     <h1>HALI HAM SAVOLLARINGIZ QOLDIMI?</h1>
                     <button>BIZ BILAN BO’GLANING</button>
                     <div className="icons">
-                        <div className="rad">
+                        <div className="rad2">
                             <FaYoutube />
                         </div>
-                        <div className="rad">
-                            <FaTelegram />
-                        </div>
-                        <div className="rad">
-                            <FaInstagram />
-                        </div>
+                        <Link to='https://t.me/tubo_manager' target='__blank'>
+                            <div className="rad2">
+                                <FaTelegram />
+                            </div>
+                        </Link>
+                        <Link to='https://www.instagram.com/tubo_organik?igsh=YjhpbDQ1cHJuOW41' target='__blank'>
+                            <div className="rad2">
+                                <FaInstagram />
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>

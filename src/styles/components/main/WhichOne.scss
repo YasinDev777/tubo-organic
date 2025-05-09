@@ -9,21 +9,12 @@
     gap: calc(var(--index)*2.2);
 }
 
-.paperImage{
-    width: 100%;
-    height: calc(var(--index)*6);
-    background: url("../../../assets/backgrounds/paper.png") no-repeat top/cover;
-    position: relative;
-    z-index: 4;
-}
-
 .whichOne__tex{
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding-top: calc(var(--index)*0.8);
 
     h1{
         font-size: calc(var(--index)*3.8);

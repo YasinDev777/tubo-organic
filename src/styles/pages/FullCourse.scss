@@ -77,55 +77,43 @@
 
 .header__about__course{
     width: 100%;
-    height: auto;
+    max-height: 40dvh;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    column-width: calc(var(--index)*2.5);
+    column-gap: calc(var(--index)*1.1);
+    padding: 0 calc(var(--index)*1.2);
 
-    .about__course__title{
-        width: 40%;
-    
-        h1{
-            text-align: start;
-            font-size: calc(var(--index)*2.2);
-
-            span{
-                color: var(--main-color);
-                text-transform: capitalize;
-            }
-        }
-    }
-
-    .about__course__info{
-        padding: calc(var(--index)*1.8) calc(var(--index)*2.8);
-        background-color: var(--bg-color);
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: calc(var(--index)*1.6);
-        border-radius: calc(var(--index)*1);
-
-        ul{
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
-            gap: calc(var(--index)*0.8);
-            font-size: calc(var(--index)*0.95);
+    ul {
+        li {
+            list-style: none;
+            break-inside: avoid;
+            padding: calc(var(--index)*0.3) 0;
+            font-size: calc(var(--index)*1);
+            font-weight: 600;
+            position: relative;
         }
 
-        button{
-            font-size: calc(var(--index)*1.1);
-            padding: calc(var(--index)*0.5) calc(var(--index)*1.8);
-            background-color: var(--main-color);
-            transition: .25s ease;
-            color: var(--any-text-color);
-            cursor: pointer;
-            border-radius: calc(var(--index)*6);
-
-            &:hover{
-                filter: brightness(80%);
-            }
+        li.have::after {
+            width: calc(var(--index)*1);
+            height: calc(var(--index)*1);
+            content: "";
+            position: absolute;
+            top: 0;
+            left: calc(var(--index)*-1.2);
+            transform: translateY(48%);
+            background: url('../../assets/vectors/circle-check-big.svg') center/contain no-repeat;
+        }
+        li.notHave::after {
+            width: calc(var(--index)*1);
+            height: calc(var(--index)*1);
+            content: "";
+            position: absolute;
+            top: 0;
+            left: calc(var(--index)*-1.2);
+            transform: translateY(48%);
+            background: url('../../assets/vectors/circle-x.svg') center/contain no-repeat;
         }
     }
 }

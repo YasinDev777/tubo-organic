@@ -1,6 +1,6 @@
 .login {
     width: 100%;
-    height: calc(100dvh - calc(var(--index)*4.5));
+    height: 100dvh;
     padding: calc(var(--index)*2.5);
     display: flex;
     flex-direction: column;
@@ -9,14 +9,50 @@
     gap: calc(var(--index)*1.65);
 }
 
+.Swiper {
+    width: 55%;
+    height: 100%;
+}
+
+.login__container {
+    width: 85%;
+    display: flex;
+    align-items: center;
+    // overflow: hidden;
+    border: calc(var(--index)*0.15) solid var(--border-color);
+    border-radius: 0 calc(var(--index)*0.5) calc(var(--index)*0.5) calc(var(--index)*0.5);
+    position: relative;
+
+    .back-button {
+        border-radius: calc(var(--index)*0.3) calc(var(--index)*0.3) 0 0;
+        background-color: var(--other-bg-color);
+        width: calc(var(--index)*2.4);
+        height: calc(var(--index)*2.1);
+        position: absolute;
+        border: calc(var(--index)*0.15) solid var(--border-color);
+        left: calc(var(--index)*-0.1);
+        top: 0;
+        transform: translateY(-100%);
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        
+        svg {
+            fill: var(--text-color);
+            font-size:calc(var(--index)*1.15);
+        }
+    }
+}
+
 .login-div {
+    width: 45%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: calc(var(--index)*1.8);
     padding: calc(var(--index)*1.8) calc(var(--index)*1.2);
-    border: calc(var(--index)*0.15) solid var(--border-color);
-    border-radius: calc(var(--index)*0.5);
     background: var(--other-bg-color);
 
     h1 {
@@ -46,13 +82,14 @@
 
     button {
         width: 100%;
-        padding: calc(var(--index)*0.55) calc(var(--index)*2);
+        padding: calc(var(--index)*0.65) calc(var(--index)*2);
         background: var(--main-color);
         color: var(--any-text-color);
         border-radius: calc(var(--index)*6);
         font-size: calc(var(--index)*1);
         cursor: pointer;
         transition: 0.25s ease;
+        font-weight: 500;
 
         &:hover {
             filter: brightness(80%);
@@ -61,20 +98,25 @@
 
     p {
         font-size: calc(var(--index)*1);
-        width: 90%;
+        width: calc(var(--index)*15);
         text-align: center;
         line-height: calc(var(--index)*1.5);
-
+        font-weight: 500;
         a {
-            font-weight: 500;
+            font-weight: 700;
             color: var(--other-text-color);
         }
     }
 }
 
 @media (max-width: 950px) {
+    .Swiper {
+        display: none;
+    }
     .login-div {
+        width: 100%;
         gap: calc(var(--index)*2.5);
+        border: calc(var(--index)*0.15) solid var(--border-color);
 
         h1 {
             font-size: calc(var(--index)*2.8);

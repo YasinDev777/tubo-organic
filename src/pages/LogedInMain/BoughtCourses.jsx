@@ -13,7 +13,7 @@ const BoughtCourses = () => {
   const storageCourse = localStorage.getItem('currentCourse')
   useEffect(() => {
     if (allCourses.length > 0) {
-      setCurrentCourse(storageCourse || allCourses[0]?.course_name)
+      setCurrentCourse(storageCourse || allCourses[0]?.course_id)
     }
   }, [allCourses, storageCourse])
 
@@ -21,14 +21,15 @@ const BoughtCourses = () => {
 
   useEffect(() => {
     dispatch(fetchCourses())
+    console.log(FindedCourse)
   }, [dispatch])
 
   return (
     <div className="bought-courses">
       <div className="course__info">
         <div className="course__info-img">
-          <Link to={`/course/${FindedCourse?.course_name}`}>
-            <img src={FindedCourse?.image_url} alt={FindedCourse?.course_name} />
+          <Link to={`/course/${FindedCourse?.course_id}`}>
+            <img src={FindedCourse?.image_url} alt={FindedCourse?.id} />
           </Link>
         </div>
         <div className="course__info-info">
@@ -82,7 +83,7 @@ const BoughtCourses = () => {
             {allCourses.map((item) => (
               <div className='bought__courses-div' key={item.course_id}>
                 <div className="bought__courses-img">
-                  <Link to={`/course/${item.course_name}`} onClick={() => setCurrentCourse(item.course_name)}>
+                  <Link to={`/course/${item.course_id}`} onClick={() => setCurrentCourse(item.course_id)}>
                     <img src={item.image_url} alt={item.course_name} />
                   </Link>
                 </div>

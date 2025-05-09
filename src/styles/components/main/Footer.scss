@@ -55,6 +55,15 @@
             border: calc(var(--index)*0.1) solid var(--any-text-color);
             color: var(--any-text-color);
             cursor: pointer;
+            transition: 0.25s ease;
+            &:hover{
+                background: var(--bg-color);
+                color: var(--text-color);
+
+                svg{
+                    fill: var(--text-color);
+                }
+            }
 
             svg{
                 fill: var(--any-text-color);
@@ -95,7 +104,6 @@
             font-size: calc(var(--index)*1.1);
             font-weight: 700;
             border-radius: calc(var(--index)*0.8);
-            cursor: pointer;
         }
 
         .icons{
@@ -104,7 +112,7 @@
             gap: calc(var(--index)*0.8);
             padding-top: calc(var(--index)*0.9);
 
-            .rad{
+            .rad2{
                 width: calc(var(--index)*2.5);
                 height: calc(var(--index)*2.5);
                 display: flex;
@@ -113,6 +121,17 @@
                 border-radius: 100%;
                 border: calc(var(--index)*0.1) solid var(--any-text-color);
                 cursor: pointer;
+                transition: 0.25s ease;
+
+                &:hover {
+                    background: var(--bg-color);
+                    color: var(--text-color);
+                    border: calc(var(--index)*0.1) solid var(--text-color);
+    
+                    svg{
+                        fill: var(--text-color);
+                    }
+                }
 
                 svg{
                     font-size: calc(var(--index)*1.3);

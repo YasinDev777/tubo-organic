@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchCourses } from '../redux/slices/coursesSlice'
@@ -7,9 +7,15 @@ import Loader from '../components/Loader'
 const Courses = () => {
   const dispatch = useDispatch()
   const { data: courses, status: coursesStatus, error: coursesError } = useSelector(state => state.courses)
+  const [filteredCourses, setFilteredCourses] = useState([])
   
   useEffect(() => {
     dispatch(fetchCourses())
+
+    if (coursesStatus === 'success'){
+      const filter = courses.filter(item => item.status !== 'progress')
+      setFilteredCourses(filter)
+    }
   }, [dispatch, courses.length])
 
   return (
@@ -17,8 +23,8 @@ const Courses = () => {
       {
         coursesStatus === 'idle' ? <Loader /> :
         <div className='courses-div'>
-          { 
-            courses.map((item, index) => (
+          {
+            filteredCourses.map((item, index) => (
               <div className="div-courses" key={item.id}>
                 <div className="main-course-img">
                   <Link to={`/courses/${item.id}`}>

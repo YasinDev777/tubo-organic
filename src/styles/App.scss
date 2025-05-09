@@ -41,6 +41,7 @@ body {
 }
 
 @import "./components/Main.scss";
+@import "./components/Navbar.scss";
 @import "./components/main/Header.scss";
 @import "./components/main/WhichOne.scss";
 @import "./components/main/AboutPov.scss";
@@ -50,6 +51,7 @@ body {
 @import "./components/main/Footer.scss";
 @import "./components/main/PopUp.scss";
 @import "./components/Loader.scss";
+@import "./components/Login/Carusel.scss";
 @import "./pages/Login.scss";
 @import "./pages/Courses.scss";
 @import "./pages/FullCourse.scss";

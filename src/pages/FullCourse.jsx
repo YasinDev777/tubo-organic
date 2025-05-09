@@ -21,16 +21,17 @@ const FullCourse = () => {
     
 
   useEffect(() => {
-    if (!loading && allCourses) {
-      const course = allCourses.find(course => course.id === id)
+    if (!loading && user && allCourses) {
+      const course = allCourses.find(course => course.course_id === id)
       setIsUserHave(!!course)
     }
-  }, [allCourses, coursesStatus, id])
+  }, [loading, id, user, allCourses])
 
   useEffect(() => {
     if (coursesStatus === 'success' && courses.length > 0 && id) {
       const found = courses.find(c => c.id === id);
       setCurrentCourse(found || null);
+      console.log(currentCourse)
     }
   }, [coursesStatus, courses, id]);
 
@@ -63,37 +64,13 @@ const FullCourse = () => {
           </div>
         </div>
         <div className="header__about__course">
-          <div className="about__course__title">
-            <h1>Nima uchun <span>{currentCourse?.course_name}</span> kursni tanlash kerak</h1>
-          </div>
-          <div className="about__course__info">
-            {
-              currentCourse?.why_this_course ?
-              <ul>
-                {
-                  currentCourse?.why_this_course.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))
-                }
-              </ul> : ''
-            }
-            {
-              isUserHave ? (
-                <Link to={`/course/${id}`}>
-                  <button>
-                    Ko'rish
-                  </button>
-                </Link>
-              ) : (
-                <button>Sotib olish</button>
-              )
-            }
-          </div>
-        </div>
-        <div className="header__buy__course">
-          <h1></h1>
-          <div className="buy__course"></div>
-          <div className="buy__course__buttons"></div>
+          <ul>
+            {/* {!currentCourse?.why_this_course ? null :
+              currentCourse?.why_this_course.map((item, index) => (
+                <li key={index} className='notHave'>{item}</li>
+              ))
+            } */}
+          </ul>
         </div>
       </>
     }

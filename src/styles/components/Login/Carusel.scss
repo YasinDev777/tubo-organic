@@ -1,0 +1,13 @@
+.swiper-pagination-bullet {
+    background-color: var(--main-text-color);
+    padding: calc(var(--index) * 0.3);
+}
+  
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: var(--main-color);
+}
+
+.slide{
+    width: 100%;
+    height: 100%;
+}
