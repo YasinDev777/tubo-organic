@@ -36,14 +36,13 @@ const useGetUserCourses = () => {
         setLoading(false)
       })
 
-      // Cleanup on unmount
       return () => unsubscribe()
     }
   }, [decrypt])
 
   useEffect(() => {
     const unsubscribe = fetchCourses()
-    return unsubscribe // Cleanup when component unmounts
+    return unsubscribe
   }, [fetchCourses])
 
   const allCourses = useMemo(() => {

@@ -85,7 +85,7 @@ const CoursesPage = () => {
     && loading
   ) {
     return <Loader />
-  } else if (
+  } if (
     (!coursesVideo[0] ||
     !coursesVideo[0].moduls?.[currentModul]?.modul_lessons?.[currentLesson])
     && !loading

@@ -24,7 +24,7 @@ const Courses = () => {
         coursesStatus === 'idle' ? <Loader /> :
         <div className='courses-div'>
           {
-            filteredCourses.map((item, index) => (
+            filteredCourses.map((item) => (
               <div className="div-courses" key={item.id}>
                 <div className="main-course-img">
                   <Link to={`/courses/${item.id}`}>

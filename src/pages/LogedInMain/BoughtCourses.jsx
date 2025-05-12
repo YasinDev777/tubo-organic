@@ -104,6 +104,8 @@ useEffect(() => {
   }
 }, [FindedCourse?.due_date, FindedCourse?.id]);
 
+if (!FindedCourse) return <h1>Kurslar Mavjud emas</h1>
+
   return (
     <div className="bought-courses">
       <div className="course__info">

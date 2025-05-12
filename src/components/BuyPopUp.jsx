@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const BuyPopUp = ({ active, setIsActive }) => {
     const navigate = useNavigate()
@@ -45,11 +45,11 @@ const BuyPopUp = ({ active, setIsActive }) => {
       >
         Bekor qilish
       </button>
-      <button 
-        onClick={() => navigate('https://t.me/tuboadmin2025')}
-      >
-        Bog'lanish
-      </button>
+      <Link to='https://t.me/tuboadmin2025'>
+        <button>
+          Bog'lanish
+        </button>
+      </Link>
     </div>
   </div>
 </div>
