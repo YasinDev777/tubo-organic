@@ -39,7 +39,7 @@ const Courses = () => {
                   </div>
                   <div className="half-price">
                     <p className='method-pay'>Muddatli to'lov</p>
-                    <p>{item.half_price} so'm/oy</p>
+                    <p>{`${item.half_price} ${item.half_price === 'mavjut emas' ? '' : "so'm/oy"}`}</p>
                   </div>
                 </div>
                 <Link to={`/courses/${item.id}`}>

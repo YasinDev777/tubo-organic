@@ -3,7 +3,7 @@ import { collection, getDocs } from 'firebase/firestore'
 import { db } from '../../firebase/firebase'
 
 export const fetchTarifs = createAsyncThunk(
-    'courses/fetchCourse',
+    'courses/fetchTarifs',
     async (_, { getState }) => {
         const { tarifs } = getState();
         if (tarifs.data.length > 0) {

@@ -8,6 +8,7 @@ import "../styles/App.scss"
 import CoursesPage from '../pages/LogedInMain/CoursesPage'
 import Loader from '../components/Loader'
 import Navbar from '../components/Navbar'
+import NotFound from '../pages/NotFound'
 const Main = lazy(() => import('../components/Main'));
 
 const AppRoutes = () => {
@@ -21,7 +22,7 @@ const AppRoutes = () => {
   return (
     <div className='app'>
         {
-          (location.pathname !== '/login' && isLogedIn) || (location.pathname !== '/login' && !isLogedIn && location.pathname !== '/') ?
+          (location.pathname !== '/login' && isLogedIn && location.pathname !== '*') || (location.pathname !== '/login' && !isLogedIn && location.pathname !== '/' && location.pathname !== '*') ?
           <Navbar /> : null
         }
       <Routes>
@@ -30,6 +31,7 @@ const AppRoutes = () => {
         <Route path='/courses' element={<Courses />} />
         <Route path='/courses/:id' element={<FullCourse />} />
         <Route path='/course/:id' element={<CoursesPage />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
   )

@@ -5,7 +5,7 @@ import { closePopUp } from '../../redux/slices/PopUpSlice';
 const PopUp = () => {
     const dispatch = useDispatch()
     const isOpen = useSelector((state) => state.popUp.isOpen)
-    const youtubeVideo = 'https://www.youtube.com/embed/9ao4FEaDGhQ?si=9TjQDvbAecnSCW9N?controls=0'
+    const youtubeVideo = 'https://www.youtube.com/embed/9ao4FEaDGhQ?si=9TjQDvbAecnSCW9N?controls=0&rel=0'
 
     useEffect(() => {
         const body = document.querySelector('body');

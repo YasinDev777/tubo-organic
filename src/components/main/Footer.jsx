@@ -20,12 +20,14 @@ const Footer = () => {
                 </div>
                 <div className="landing__footer__questions">
                     <h1>HALI HAM SAVOLLARINGIZ QOLDIMI?</h1>
-                    <button>BIZ BILAN BO’GLANING</button>
+                    <Link to='https://t.me/tuboadmin2025'>
+                        <button>BIZ BILAN BO’GLANING</button>
+                    </Link>
                     <div className="icons">
                         <div className="rad2">
                             <FaYoutube />
                         </div>
-                        <Link to='https://t.me/tubo_manager' target='__blank'>
+                        <Link to='https://t.me/Tubo_organik' target='__blank'>
                             <div className="rad2">
                                 <FaTelegram />
                             </div>

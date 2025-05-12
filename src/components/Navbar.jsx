@@ -6,11 +6,13 @@ import { RiTelegram2Fill } from "react-icons/ri";
 import { HiMenuAlt3 } from "react-icons/hi";
 import logo from '../assets/logo/logo3.png'
 import { FaXmark } from "react-icons/fa6";
+import LogOutPopUp from './LogOutPopUp';
 
 const Navbar = () => {
     const [state, setState] = useState(false);
     const [userData, setUserData] = useState(null)
     const navigate = useNavigate()
+    const [isActive, setIsActive] = useState(false)
 
     useEffect(() => {
         const storedData = localStorage.getItem('userData');
@@ -31,6 +33,7 @@ const Navbar = () => {
 
     return (
         <>
+            <LogOutPopUp active={isActive} setIsActive={setIsActive} />
             <div className='nav2'>
                 <div className="logo-n">
                     <Link to='/'>
@@ -67,15 +70,20 @@ const Navbar = () => {
                         </Link>
                     </div>
                     <div className="links">
-                        <Link to='courses'>
-                            <button className='btn1'>Kurslar</button>
-                        </Link>                        
                         {
                             !userData ? 
-                            <Link to='login'>
+                            <Link to='/login'>
                                 <button className='btn2'>Kirish</button>
                             </Link>
                             : <h4>{userData.name}</h4>
+                        }
+                        <Link to='/courses'>
+                            <button className='btn1'>Kurslar</button>
+                        </Link>                        
+                        {
+                            !userData ?
+                            null
+                            : <button className='logOut__btn' onClick={() => setIsActive(!isActive)}>Chiqish</button>
                         }
                     </div>
                 </nav>
@@ -125,7 +133,7 @@ const Navbar = () => {
                                 <button className='btn1' onClick={() => setState(!state)}>Kurslar</button>
                             </Link>
                             {
-                                userData ? null :
+                                userData ? <button className='logOut__btn' onClick={() => setIsActive(!isActive)}>Chiqish</button> :
                                 <Link to='/login'>
                                     <button className='btn2' onClick={() => setState(!state)}>Kirish</button>
                                 </Link>

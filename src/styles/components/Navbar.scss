@@ -132,7 +132,8 @@ nav {
     gap: calc(var(--index)*1);
 
     .btn1,
-    .btn2 {
+    .btn2,
+    .logOut__btn {
         font-size: calc(var(--index)*0.9);
         padding: calc(var(--index)*0.6) calc(var(--index)*2);
         cursor: pointer;
@@ -150,7 +151,8 @@ nav {
         }
     }
 
-    .btn2 {
+    .btn2,
+    .logOut__btn {
         color: var(--any-text-color);
         background-color: var(--main-color);
         border-radius: calc(var(--index)*6);

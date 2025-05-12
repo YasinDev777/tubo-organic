@@ -21,7 +21,7 @@ const Header = () => {
                             <img src={calendarIcon} alt="calendar-icon" loading='lazy' />
                         </div>
                         <div className="date-tex">
-                            <p>10-may <span>|</span> 20:00 da</p>
+                            <p>12-may <span>|</span> 20:00 da</p>
                             <i>Onlayn</i>
                         </div>
                     </div>
@@ -48,7 +48,7 @@ const Header = () => {
                             <p><span>TABIIY MUZQAYMOQ kursini</span> bonusga oling!</p>
                         </div>
                         <div className="header__buttons">
-                        <Link to='https://t.me/tubo_manager' target='__blank'>
+                            <Link to='https://t.me/tuboadmin2025' target='__blank'>
                                 <button className='header__btn1'>
                                     <p>
                                         JOYNI BAND QILISH
