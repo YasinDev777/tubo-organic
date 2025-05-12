@@ -29,6 +29,10 @@
     }
 }
 
+.haveNot__course__title {
+    font-size: calc(var(--index)*2);
+}
+
 .course__info-img {
     width: 47%;
     height: calc(var(--index)*18);
