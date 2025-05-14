@@ -558,7 +558,7 @@
 
 }
 
-@media (max-width: 375px) {
+@media (max-width: 414px) {
     .header__intro {
         .header__intro__container {
             .deadline {
@@ -582,6 +582,37 @@
 
         .header__intro__image {
             top: calc(var(--index)*4);
+            width: calc(var(--index)*55);
+            height: calc(var(--index)*66);
+            right: calc(var(--index)*-22.3);  
+        }
+
+    }
+}
+@media (max-width: 414px) {
+    .header__intro {
+        .header__intro__container {
+            .deadline {
+                .wrapper {
+                    h3 {
+                        font-size: calc(var(--index)*2.5);
+                    }
+                }
+            }
+
+            .intro__h1 {
+                font-size: calc(var(--index)*2.5);
+            }
+            .header__buttons {
+                .header__btn1,
+                .header__btn2 {
+                    font-size: calc(var(--index)*1.2);
+                }
+            }
+        }
+
+        .header__intro__image {
+            top: calc(var(--index)*6);
             width: calc(var(--index)*55);
             height: calc(var(--index)*66);
             right: calc(var(--index)*-22.3);  

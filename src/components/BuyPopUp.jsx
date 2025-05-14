@@ -40,13 +40,11 @@ const BuyPopUp = ({ active, setIsActive }) => {
     </div>
 
     <div className="BuyPopUp__buttons">
-      <button 
-        onClick={() => setIsActive(false)}
-      >
+      <button className='btn11' onClick={() => setIsActive(false)}>
         Bekor qilish
       </button>
       <Link to='https://t.me/tuboadmin2025'>
-        <button>
+        <button className='btn22'>
           Bog'lanish
         </button>
       </Link>

@@ -104,7 +104,8 @@ useEffect(() => {
   }
 }, [FindedCourse?.due_date, FindedCourse?.id]);
 
-if (!FindedCourse) return <h1 className='haveNot__course__title'>Kurslar Mavjud emas</h1>
+if (loading) return <Loader />;
+if (!FindedCourse && !loading) return <h1 className='haveNot__course__title'>Kurslar Mavjud emas</h1>
 
   return (
     <div className="bought-courses">

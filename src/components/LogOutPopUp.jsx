@@ -48,14 +48,10 @@ const LogOutPopUp = ({ active, setIsActive }) => {
     </div>
 
     <div className="BuyPopUp__buttons">
-      <button 
-        onClick={() => setIsActive(false)}
-      >
+      <button onClick={() => setIsActive(false)} className='btn11'>
         Bekor qilish
       </button>
-      <button 
-        onClick={logOutFunc}
-      >
+      <button onClick={logOutFunc} className='btn22'>
         Chiqish
       </button>
     </div>

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { fetchCourses } from '../redux/slices/coursesSlice'
 import useGetUserCourses from '../functions/firebaseCourse/FirebaseCourses'
 import Loader from '../components/Loader'
 import BuyPopUp from '../components/BuyPopUp'
 import NotFound from './NotFound'
+import { IoMdArrowRoundBack } from "react-icons/io";
 const FullCourse = () => {
   const { id } = useParams()
   const dispatch = useDispatch()
@@ -15,7 +16,7 @@ const FullCourse = () => {
   const { data: courses = [], status: coursesStatus, error: coursesError } = useSelector(state => state.courses)
   const [currentCourse, setCurrentCourse] = useState([])
   const [isPopUpActive, setIsPopUpActive] = useState(false)
-
+  const navigate = useNavigate()
   useEffect(() => {
     if (coursesStatus === 'idle' || coursesStatus === 'error') {
       dispatch(fetchCourses())
@@ -47,9 +48,12 @@ const FullCourse = () => {
       {
         <>
           <div className="header__header">
+            <div className='fullCOurse__backIcon' onClick={() => navigate(-1)}>
+              <IoMdArrowRoundBack />
+            </div>
             <div className="header__text">
               <h1>{currentCourse?.course_name}</h1>
-              <p>{currentCourse?.course_name}ni «<span>Tubo Organic</span>» platformasida Ko'p yillik tajribaga ega mutahassisdan o'rganing</p>
+              <p><strong>{currentCourse?.course_name}</strong> online kursini «<span>Tubo Organic</span>» platformasida Ko'p yillik tajribaga ega mutahassisdan o'rganing</p>
               {
                 isUserHave ? (
                   <Link to={`/course/${id}`}>

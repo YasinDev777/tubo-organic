@@ -46,7 +46,7 @@ const useGetUserCourses = () => {
   }, [fetchCourses])
 
   const allCourses = useMemo(() => {
-    return courses.map(({ course_id, due_date, user_progress, id, progress }) => {
+    return courses.map(({ course_id, due_date, user_progress, id, progress, course_full }) => {
       const match = userCourses?.find(uc => uc.id === course_id)
 
       return {
@@ -56,7 +56,8 @@ const useGetUserCourses = () => {
         course_id,
         user_progress,
         id,
-        progress
+        progress,
+        course_full
       }
     })
   }, [courses, userCourses])

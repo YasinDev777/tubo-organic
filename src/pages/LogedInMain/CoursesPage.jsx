@@ -22,24 +22,36 @@ const CoursesPage = () => {
   const [currentModul, setCurrentModul] = useState(0)
   const [currentLesson, setCurrentLesson] = useState(0)
   const dispatch = useDispatch()
+  const [showNotFound, setShowNotFound] = useState(false);
   const isEnd = Array.isArray(currentCourse?.user_progress)
     ? currentCourse.user_progress.find(item => item?.lessonIndex === currentLesson && item?.modulIndex === currentModul)
     : false
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await getVideoCourse(id)
-      const doneData = data.find(item => item.course_id === id)
-      setCoursesVideo([doneData])
-    }
+  if (!id || !currentCourse) return;
 
-    if (id) fetchData()
-  }, [id])
+  const fetchData = async () => {
+    const data = await getVideoCourse(id);
+    const doneData = data.find(item => item.course_id === id);
+    if (!doneData) return;
+
+    if (currentCourse.course_full === false) {
+      const dataLength = Math.floor(doneData.moduls.length / 2);
+      setCoursesVideo([{
+        ...doneData,
+        moduls: doneData.moduls.slice(0, dataLength)
+      }]);
+    } else {
+      setCoursesVideo([doneData]);
+    }
+  };
+
+  fetchData();
+}, [id, currentCourse, currentCourse?.course_full]);
 
   useEffect(() => {
     dispatch(fetchCourses())
   }, [])
-
 
   useEffect(() => {
     if (
@@ -71,27 +83,23 @@ const CoursesPage = () => {
     }
   }, [allCourses, id, coursesVideo])
 
+useEffect(() => {
+  const timer = setTimeout(() => {
+    if (!loading && !coursesVideo[0]) {
+      setShowNotFound(true);
+    }
+  }, 500); // 0.5 секунды задержки
 
-  console.log(allCourses)
-  console.log(
-    'lesson_info:',
-    coursesVideo[0]?.moduls[currentModul]?.modul_lessons[currentLesson]?.lesson_info
-  )
+  return () => clearTimeout(timer);
+}, [loading, coursesVideo]);
 
+if (loading) {
+  return <Loader />;
+}
 
-  if (
-    (!coursesVideo[0] ||
-    !coursesVideo[0].moduls?.[currentModul]?.modul_lessons?.[currentLesson])
-    && loading
-  ) {
-    return <Loader />
-  } if (
-    (!coursesVideo[0] ||
-    !coursesVideo[0].moduls?.[currentModul]?.modul_lessons?.[currentLesson])
-    && !loading
-  ) {
-    return <NotFound />
-  }
+if (showNotFound) {
+  return <NotFound />;
+}
 
   return (
     <div className='CoursesPage'>

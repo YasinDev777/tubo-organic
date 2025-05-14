@@ -288,7 +288,7 @@
     }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 430px) {
     .course__info {
         width: 100%;
     }
@@ -297,6 +297,9 @@
         grid-template-columns: repeat(1, 1fr);
 
         .bought__courses-div {
+            .bought__courses-img {
+                height: calc(var(--index)*14);
+            }
             .bought__courses__container {
                 gap: calc(var(--index)*2.3);
 
