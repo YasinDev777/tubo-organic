@@ -13,7 +13,8 @@ import NotFound from '../NotFound';
 
 const CoursesPage = () => {
   const { id } = useParams()
-  const [coursesVideo, setCoursesVideo] = useState([])
+  const [coursesVideo, setCoursesVideo] = useState(null)
+   const [loadingData, setLoadingData] = useState(true);
   const navigate = useNavigate()
   const [activeOption, setActiveOption] = useState(false)
   const [activeList, setActiveList] = useState(false)
@@ -28,67 +29,67 @@ const CoursesPage = () => {
     : false
 
   useEffect(() => {
-  if (!id || !currentCourse) return;
+    if (!id) return;
 
-  const fetchData = async () => {
-    const data = await getVideoCourse(id);
-    const doneData = data.find(item => item.course_id === id);
-    if (!doneData) return;
+    const loadData = async () => {
+      setLoadingData(true);
+      try {
+        const data = await getVideoCourse(id);
+        const courseData = data.find(item => item.course_id === id);
+        
+        if (!courseData) {
+          setCoursesVideo(null);
+          return;
+        }
 
-    if (currentCourse.course_full === false) {
-      const dataLength = Math.floor(doneData.moduls.length / 2);
-      setCoursesVideo([{
-        ...doneData,
-        moduls: doneData.moduls.slice(0, dataLength)
-      }]);
-    } else {
-      setCoursesVideo([doneData]);
-    }
-  };
+        const processedData = currentCourse?.course_full === false 
+          ? { ...courseData, moduls: courseData.moduls.slice(0, Math.floor(courseData.moduls.length / 2)) }
+          : courseData;
 
-  fetchData();
-}, [id, currentCourse, currentCourse?.course_full]);
+        setCoursesVideo(processedData);
+      } catch (error) {
+        console.error("Failed to load course:", error);
+        setCoursesVideo(null);
+      } finally {
+        setLoadingData(false);
+      }
+    };
+
+    loadData();
+  }, [id, currentCourse?.course_full]);
 
   useEffect(() => {
     dispatch(fetchCourses())
   }, [])
 
-  useEffect(() => {
-    if (
-      allCourses &&
-      id &&
-      coursesVideo.length > 0 &&
-      coursesVideo[0]?.moduls?.length > 0
-    ) {
-      const course = allCourses.find(item => item?.course_id === id)
+useEffect(() => {
+  if (allCourses && id && coursesVideo?.moduls?.length > 0) {
+    const course = allCourses.find(item => item?.course_id === id);
 
-      if (
-        course &&
-        Array.isArray(course.user_progress) &&
-        course.user_progress.length > 0
-      ) {
-        const lastProgress = course.user_progress[course.user_progress.length - 1]
+    if (course && Array.isArray(course.user_progress) ) {
+      const lastProgress = course.user_progress[course.user_progress.length - 1];
+      
+      // Используем coursesVideo без [0]
+      const modul = coursesVideo.moduls[lastProgress?.modulIndex];
+      const lesson = modul?.modul_lessons?.[lastProgress?.lessonIndex];
 
-        const modul = coursesVideo[0].moduls[lastProgress.modulIndex]
-        const lesson = modul?.modul_lessons?.[lastProgress.lessonIndex]
-
-        if (modul && lesson) {
-          setCurrentModul(lastProgress.modulIndex)
-          setCurrentLesson(lastProgress.lessonIndex)
-        } else {
-          setCurrentModul(0)
-          setCurrentLesson(0)
-        }
+      if (modul && lesson) {
+        setCurrentModul(lastProgress.modulIndex);
+        setCurrentLesson(lastProgress.lessonIndex);
+      } else {
+        setCurrentModul(0);
+        setCurrentLesson(0);
       }
     }
-  }, [allCourses, id, coursesVideo])
+  }
+}, [allCourses, id, coursesVideo]);
 
 useEffect(() => {
   const timer = setTimeout(() => {
-    if (!loading && !coursesVideo[0]) {
+    if (!loading && !coursesVideo) { // Убрали [0]
       setShowNotFound(true);
     }
-  }, 500); // 0.5 секунды задержки
+  }, 500);
 
   return () => clearTimeout(timer);
 }, [loading, coursesVideo]);
@@ -106,31 +107,31 @@ if (showNotFound) {
       <div className="CoursePage__nav">
         <div className="CoursePage__tex">
           <p onClick={() => navigate(-1)}><FaArrowLeft /> {currentCourse?.course_name}</p>
-          <h3>{coursesVideo[0]?.moduls[currentModul]?.modul_lessons[currentLesson]?.lesson_name}</h3>
+          <h3>{coursesVideo?.moduls[currentModul]?.modul_lessons[currentLesson]?.lesson_name}</h3>
         </div>
         <button onClick={() => setActiveList(!activeList)}><RiPlayList2Fill /> PlayList</button>
       </div>
 
       <div className="CoursesPage__videoPLayer">
         <div className="video__player">
-          <iframe src={coursesVideo[0]?.moduls[currentModul]?.modul_lessons[currentLesson]?.lesson_video} frameBorder="0" allowFullScreen style={{ width: '100%', height: '100%' }}></iframe>
+          <iframe src={coursesVideo?.moduls[currentModul]?.modul_lessons[currentLesson]?.lesson_video} frameBorder="0" allowFullScreen style={{ width: '100%', height: '100%' }}></iframe>
         </div>
         <div className={`play__list ${activeList ? 'active' : ''}`}>
           <div className="play__list__nav">
-            <div className="play__list_text">
+            <div className="play__list__text">
               <h3>{currentCourse?.course_name}</h3>
-              <p>Darslar Soni: {coursesVideo[0]?.moduls[0]?.modul_lessons?.length}</p>
+              <p>Darslar Soni: {coursesVideo?.moduls[0]?.modul_lessons?.length}</p>
             </div>
             <BiX onClick={() => setActiveList(!activeList)} />
           </div>
           <div className="play__list__options">
             <div className={`play__list__options__name ${activeOption ? 'active' : ''}`} onClick={() => setActiveOption(!activeOption)}>
-              <p>{coursesVideo[0]?.moduls[currentModul]?.modul_name}</p>
+              <p>{coursesVideo?.moduls[currentModul]?.modul_name}</p>
               <FaAngleDown />
             </div>
             <div className={`play__list__options__option ${activeOption ? 'active' : ''}`}>
               {
-                coursesVideo[0]?.moduls.map((item, index) => (
+                coursesVideo?.moduls.map((item, index) => (
                   <div className='play__list__option' key={index} onClick={() => { setActiveOption(!activeOption); setCurrentModul(index); setCurrentLesson(0) }} key={index}>
                     <p>{item?.modul_name}</p>
                   </div>
@@ -141,7 +142,7 @@ if (showNotFound) {
 
           <div className="play__list__lessons">
             {
-              coursesVideo[0]?.moduls[currentModul]?.modul_lessons.map((item, index) => (
+              coursesVideo?.moduls[currentModul]?.modul_lessons.map((item, index) => (
                 <div className={`lessons ${Array.isArray(currentCourse?.user_progress) && currentCourse?.user_progress.some(item => item.lessonIndex === index && item.modulIndex === currentModul) ? 'watched' : currentLesson === index ? 'active' : ''}`}
                   style={currentLesson === index ? { background: 'var(--border-color)' } : { background: 'var(--bg-color)' }}
                   key={index} onClick={() => setCurrentLesson(index)}>
@@ -159,8 +160,8 @@ if (showNotFound) {
       <button className={`SaveToDb ${isEnd ? 'watched' : ''}`}
         onClick={() => updateUserProgress(
           currentCourse?.id,
-          coursesVideo[0]?.moduls[currentModul]?.modul_name,
-          coursesVideo[0]?.moduls[currentModul]?.modul_lessons[currentLesson]?.lesson_name,
+          coursesVideo?.moduls[currentModul]?.modul_name,
+          coursesVideo?.moduls[currentModul]?.modul_lessons[currentLesson]?.lesson_name,
           currentModul,
           currentLesson
         )}
@@ -169,8 +170,8 @@ if (showNotFound) {
         <h1>Ushbu Dars uchun Malumot</h1>
         <div className='util__info__container'>
           {
-            coursesVideo[0]?.moduls?.[currentModul]?.modul_lessons?.[currentLesson]?.lesson_info
-              ? [...coursesVideo[0].moduls[currentModul].modul_lessons[currentLesson].lesson_info]
+            coursesVideo?.moduls?.[currentModul]?.modul_lessons?.[currentLesson]?.lesson_info
+              ? [...coursesVideo.moduls[currentModul].modul_lessons[currentLesson].lesson_info]
                 .sort((a, b) => b.info.length - a.info.length)
                 .map((item, index) => (
                   <div className="util__info__card" key={index}>
