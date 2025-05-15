@@ -40,7 +40,7 @@ const Navbar = () => {
                         <div className="log">
                             <img src={logo} alt="logo" />
                         </div>
-                        <h3>Tubo Organic</h3>
+                        <h3>Tubo Organik</h3>
                     </Link>
                 </div>
                 <nav>
@@ -66,7 +66,7 @@ const Navbar = () => {
                             <div className="log">
                                 <img src={logo} alt="logo" />
                             </div>
-                            <h3>Tubo Organic</h3>
+                            <h3>Tubo Organik</h3>
                         </Link>
                     </div>
                     <div className="links">
@@ -105,7 +105,7 @@ const Navbar = () => {
                                 <div className="log">
                                     <img src={logo} alt="logo" />
                                 </div>
-                                <h3>Tubo Organic</h3>
+                                <h3>Tubo Organik</h3>
                             </Link>
                         </div>
                         <FaXmark onClick={() => setState(!state)} />

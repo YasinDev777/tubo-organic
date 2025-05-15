@@ -86,19 +86,26 @@ useEffect(() => {
 
 useEffect(() => {
   const timer = setTimeout(() => {
-    if (!loading && !coursesVideo) { // Убрали [0]
+    if (!loading && !coursesVideo) {
       setShowNotFound(true);
     }
-  }, 500);
+  }, 1000);
 
   return () => clearTimeout(timer);
 }, [loading, coursesVideo]);
 
-if (loading) {
+if (loading || loadingData) {
   return <Loader />;
 }
 
-if (showNotFound) {
+if (!coursesVideo || !currentCourse) {
+  return <NotFound />;
+}
+
+if (
+  !coursesVideo.moduls?.[currentModul] ||
+  !coursesVideo.moduls[currentModul]?.modul_lessons?.[currentLesson]
+) {
   return <NotFound />;
 }
 
