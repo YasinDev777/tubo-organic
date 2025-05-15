@@ -31,7 +31,7 @@ const BuyPopUp = ({ active, setIsActive }) => {
     <div className="BuyPopUp__container__text">
       <h1>
         Yana bir qadam ⚡ <br />
-        Kursni ko'rish uchun ro'yxatdan o'ting!
+        Kursni ko'rish uchun Admin bilan bog'laning!
       </h1>
       
       <p>

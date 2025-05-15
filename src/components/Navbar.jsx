@@ -50,7 +50,7 @@ const Navbar = () => {
                                 <PiInstagramLogoFill />
                             </div>
                         </Link>
-                        <Link>
+                        <Link to='https://www.youtube.com/@tubo-organik'>
                             <div className="rad">
                                 <FaYoutube />
                             </div>
@@ -117,7 +117,7 @@ const Navbar = () => {
                                     <PiInstagramLogoFill />
                                 </div>
                             </Link>
-                            <Link>
+                            <Link to='https://www.youtube.com/@tubo-organik'>
                                 <div className="rad">
                                     <FaYoutube />
                                 </div>

@@ -121,7 +121,7 @@ if (
 
       <div className="CoursesPage__videoPLayer">
         <div className="video__player">
-          <iframe src={coursesVideo?.moduls[currentModul]?.modul_lessons[currentLesson]?.lesson_video} frameBorder="0" allowFullScreen style={{ width: '100%', height: '100%' }}></iframe>
+          <iframe src={coursesVideo?.moduls[currentModul]?.modul_lessons[currentLesson]?.lesson_video + '?controls=1&rel=0'} frameBorder="0" allowFullScreen style={{ width: '100%', height: '100%' }}></iframe>
         </div>
         <div className={`play__list ${activeList ? 'active' : ''}`}>
           <div className="play__list__nav">

@@ -24,9 +24,11 @@ const Footer = () => {
                         <button>BIZ BILAN BO’GLANING</button>
                     </Link>
                     <div className="icons">
-                        <div className="rad2">
-                            <FaYoutube />
-                        </div>
+                        <Link to='https://www.youtube.com/@tubo-organik' target='__blank'>
+                            <div className="rad2">
+                                <FaYoutube />
+                            </div>
+                        </Link>
                         <Link to='https://t.me/Tubo_organik' target='__blank'>
                             <div className="rad2">
                                 <FaTelegram />
