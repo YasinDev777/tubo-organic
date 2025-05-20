@@ -13,10 +13,10 @@ const Header = () => {
         <div className='header'>
             <div className="hero__header">
                 <div className="nav">
-                    <div className="logo">
+                    <div className="logo-hh">
                         <img src={logo} alt="logo" loading='lazy' />
                     </div>
-                    <div className="date">
+                    {/* <div className="date">
                         <div className="rad">
                             <img src={calendarIcon} alt="calendar-icon" loading='lazy' />
                         </div>
@@ -24,7 +24,7 @@ const Header = () => {
                             <p>12-may <span>|</span> 20:00 da</p>
                             <i>Onlayn</i>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="header__intro">
                     <div className="header__intro__container">
