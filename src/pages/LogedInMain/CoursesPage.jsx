@@ -127,7 +127,7 @@ if (
           <div className="play__list__nav">
             <div className="play__list__text">
               <h3>{currentCourse?.course_name}</h3>
-              <p>Darslar Soni: {coursesVideo?.moduls[0]?.modul_lessons?.length}</p>
+              <p>Darslar Soni: {coursesVideo?.moduls[currentModul]?.modul_lessons?.length}</p>
             </div>
             <BiX onClick={() => setActiveList(!activeList)} />
           </div>

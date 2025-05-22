@@ -1,10 +1,11 @@
 {
   "files": {
-    "main.css": "/static/css/main.766e256e.css",
-    "main.js": "/static/js/main.fbf81614.js",
-    "static/js/247.261ee6a9.chunk.js": "/static/js/247.261ee6a9.chunk.js",
+    "main.css": "/static/css/main.c96b2f47.css",
+    "main.js": "/static/js/main.c5373a4e.js",
+    "static/js/326.0adcb5fc.chunk.js": "/static/js/326.0adcb5fc.chunk.js",
     "static/js/51.ca8d63f2.chunk.js": "/static/js/51.ca8d63f2.chunk.js",
     "static/media/purepng.com-ice-creamfood-ice.svg": "/static/media/purepng.com-ice-creamfood-ice.f4fdc302a92353279fa1c9d30547dbdf.svg",
+    "static/media/BonusVideo.MP4": "/static/media/BonusVideo.4745e060ed0417b27b64.MP4",
     "static/media/header-bg-img.png": "/static/media/header-bg-img.63b0c6eea453dcf661e6.png",
     "static/media/paper.png": "/static/media/paper.168e48fb925f6e732e1a.png",
     "static/media/into-header.png": "/static/media/into-header.b0de99e275c8c78e514e.png",
@@ -20,7 +21,6 @@
     "static/media/Black-Fade-PNG-Isolated-HD 1.png": "/static/media/Black-Fade-PNG-Isolated-HD 1.7504293b5a525ba29903.png",
     "static/media/photo_2025-05-08_13-17-45.jpg": "/static/media/photo_2025-05-08_13-17-45.b6307239106a75782dfe.jpg",
     "static/media/photo_2025-05-08_13-20-56.jpg": "/static/media/photo_2025-05-08_13-20-56.da1b1e461c4061689d57.jpg",
-    "static/media/video-rotate.mp4": "/static/media/video-rotate.f73bd8267052e17699e1.mp4",
     "static/media/feedback1jpg.jpg": "/static/media/feedback1jpg.ef0313ef3afeed548683.jpg",
     "static/media/photo_2025-05-08_13-17-21.jpg": "/static/media/photo_2025-05-08_13-17-21.28aec79e18d6dbb6f1d7.jpg",
     "static/media/qis1.png": "/static/media/qis1.acad049ffaa3281a3ddc.png",
@@ -37,13 +37,13 @@
     "static/media/radio.svg": "/static/media/radio.f704ab9ea2dd7517b011255154d305c8.svg",
     "static/media/circle-x.svg": "/static/media/circle-x.4fb2a30f757fa0b325aaaac7df23bbc6.svg",
     "static/media/thin.svg": "/static/media/thin.3e848bfd3a1320d24fbb0ec04f8b789f.svg",
-    "main.766e256e.css.map": "/static/css/main.766e256e.css.map",
-    "main.fbf81614.js.map": "/static/js/main.fbf81614.js.map",
-    "247.261ee6a9.chunk.js.map": "/static/js/247.261ee6a9.chunk.js.map",
+    "main.c96b2f47.css.map": "/static/css/main.c96b2f47.css.map",
+    "main.c5373a4e.js.map": "/static/js/main.c5373a4e.js.map",
+    "326.0adcb5fc.chunk.js.map": "/static/js/326.0adcb5fc.chunk.js.map",
     "51.ca8d63f2.chunk.js.map": "/static/js/51.ca8d63f2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.766e256e.css",
-    "static/js/main.fbf81614.js"
+    "static/css/main.c96b2f47.css",
+    "static/js/main.c5373a4e.js"
   ]
 }
