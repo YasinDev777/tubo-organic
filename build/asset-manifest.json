@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.0b9cb1f9.css",
-    "main.js": "/static/js/main.937ba9b0.js",
+    "main.css": "/static/css/main.18cd582e.css",
+    "main.js": "/static/js/main.f28a94c9.js",
     "static/js/326.0adcb5fc.chunk.js": "/static/js/326.0adcb5fc.chunk.js",
     "static/js/51.ca8d63f2.chunk.js": "/static/js/51.ca8d63f2.chunk.js",
     "static/media/purepng.com-ice-creamfood-ice.svg": "/static/media/purepng.com-ice-creamfood-ice.f4fdc302a92353279fa1c9d30547dbdf.svg",
@@ -37,13 +37,13 @@
     "static/media/radio.svg": "/static/media/radio.f704ab9ea2dd7517b011255154d305c8.svg",
     "static/media/circle-x.svg": "/static/media/circle-x.4fb2a30f757fa0b325aaaac7df23bbc6.svg",
     "static/media/thin.svg": "/static/media/thin.3e848bfd3a1320d24fbb0ec04f8b789f.svg",
-    "main.0b9cb1f9.css.map": "/static/css/main.0b9cb1f9.css.map",
-    "main.937ba9b0.js.map": "/static/js/main.937ba9b0.js.map",
+    "main.18cd582e.css.map": "/static/css/main.18cd582e.css.map",
+    "main.f28a94c9.js.map": "/static/js/main.f28a94c9.js.map",
     "326.0adcb5fc.chunk.js.map": "/static/js/326.0adcb5fc.chunk.js.map",
     "51.ca8d63f2.chunk.js.map": "/static/js/51.ca8d63f2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0b9cb1f9.css",
-    "static/js/main.937ba9b0.js"
+    "static/css/main.18cd582e.css",
+    "static/js/main.f28a94c9.js"
   ]
 }

@@ -33,6 +33,15 @@ const CoursesPage = () => {
   };
 
   useEffect(() => {
+    const body = document.querySelector('body')
+    if (activeList) {
+      body.classList.add('activedList')
+    }else {
+      body.classList.remove('activedList')
+    }
+  }, [activeList])
+
+  useEffect(() => {
     if (!id) return;
 
     const loadData = async () => {
@@ -120,7 +129,7 @@ const CoursesPage = () => {
           <p onClick={() => navigate(-1)}><FaArrowLeft /> {currentCourse?.course_name}</p>
           <h3>{coursesVideo?.moduls[currentModul]?.modul_lessons[currentLesson]?.lesson_name}</h3>
         </div>
-        <button onClick={(e) => {setActiveList(true); e.stopPropagation()}}><RiPlayList2Fill /> PlayList</button>
+        <button onClick={(e) => {setActiveList(!activeList); e.stopPropagation()}}><RiPlayList2Fill /> PlayList</button>
       </div>
 
       <div className="CoursesPage__videoPLayer">

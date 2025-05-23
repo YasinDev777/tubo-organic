@@ -348,11 +348,15 @@
 }
 
 @media (max-width: 650px) {
+    body.activedList {
+        overflow: hidden !important;
+    }
+
     .CoursesPage__videoPLayer {
         height: calc(var(--index)*20);
 
         .play__list {
-            position: absolute;
+            position: fixed;
             top: 0;
             right: 0;
             z-index: 1000;
