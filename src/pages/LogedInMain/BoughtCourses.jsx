@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { fetchCourses } from '../../redux/slices/coursesSlice'
@@ -12,11 +12,14 @@ import DueDateDisplay from '../../components/DueDate'
 const BoughtCourses = () => {
   const { allCourses, loading, error } = useGetUserCourses()
   const dispatch = useDispatch()
-  const [currentCourse, setCurrentCourse] = useState('')
-  const storageCourse = localStorage.getItem('currentCourse')
-  const FindedCourse = allCourses.length > 0
-  ? FindLastCourse(allCourses, currentCourse) || allCourses[0]
-  : null;
+  const [currentCourse, setCurrentCourse] = useState(() => {
+  return localStorage.getItem('currentCourse') || '';
+});
+  const FindedCourse = useMemo(() => {
+  return allCourses.length > 0 
+    ? FindLastCourse(allCourses, currentCourse) || allCourses[0] 
+    : null;
+}, [allCourses, currentCourse]); 
   const [coursesVideo, setCoursesVideo] = useState([])
   const [totalVideo, setTotalVideo] = useState(0)
   const viewed = FindedCourse?.user_progress?.length || 0
@@ -35,13 +38,6 @@ const BoughtCourses = () => {
 
   updateProgress()
 }, [FindedCourse, viewed, coursesVideo])
-
-useEffect(() => {
-  if (allCourses.length > 0) {
-    const courseExists = allCourses.some(c => c.course_id === currentCourse);
-    setCurrentCourse(courseExists ? storageCourse || currentCourse : allCourses[0]?.course_id);
-  }
-}, [allCourses, storageCourse, currentCourse]);
 
 useEffect(() => {
   const fetchData = async () => {

@@ -14,7 +14,7 @@ import NotFound from '../NotFound';
 const CoursesPage = () => {
   const { id } = useParams()
   const [coursesVideo, setCoursesVideo] = useState(null)
-   const [loadingData, setLoadingData] = useState(true);
+  const [loadingData, setLoadingData] = useState(true);
   const navigate = useNavigate()
   const [activeOption, setActiveOption] = useState(false)
   const [activeList, setActiveList] = useState(false)
@@ -26,7 +26,11 @@ const CoursesPage = () => {
   const [showNotFound, setShowNotFound] = useState(false);
   const isEnd = Array.isArray(currentCourse?.user_progress)
     ? currentCourse.user_progress.find(item => item?.lessonIndex === currentLesson && item?.modulIndex === currentModul)
-    : false
+    : false;
+
+  const isValidVideoUrl = (url) => {
+    return url && !url.includes(window.location.hostname) && url.startsWith('http');
+  };
 
   useEffect(() => {
     if (!id) return;
@@ -36,13 +40,13 @@ const CoursesPage = () => {
       try {
         const data = await getVideoCourse(id);
         const courseData = data.find(item => item.course_id === id);
-        
+
         if (!courseData) {
           setCoursesVideo(null);
           return;
         }
 
-        const processedData = currentCourse?.course_full === false 
+        const processedData = currentCourse?.course_full === false
           ? { ...courseData, moduls: courseData.moduls.slice(0, Math.floor(courseData.moduls.length / 2)) }
           : courseData;
 
@@ -62,68 +66,79 @@ const CoursesPage = () => {
     dispatch(fetchCourses())
   }, [])
 
-useEffect(() => {
-  if (allCourses && id && coursesVideo?.moduls?.length > 0) {
-    const course = allCourses.find(item => item?.course_id === id);
+  useEffect(() => {
+    if (allCourses && id && coursesVideo?.moduls?.length > 0) {
+      const course = allCourses.find(item => item?.course_id === id);
 
-    if (course && Array.isArray(course.user_progress) ) {
-      const lastProgress = course.user_progress[course.user_progress.length - 1];
-      
-      // Используем coursesVideo без [0]
-      const modul = coursesVideo.moduls[lastProgress?.modulIndex];
-      const lesson = modul?.modul_lessons?.[lastProgress?.lessonIndex];
+      if (course && Array.isArray(course.user_progress)) {
+        const lastProgress = course.user_progress[course.user_progress.length - 1];
 
-      if (modul && lesson) {
-        setCurrentModul(lastProgress.modulIndex);
-        setCurrentLesson(lastProgress.lessonIndex);
-      } else {
-        setCurrentModul(0);
-        setCurrentLesson(0);
+        // Используем coursesVideo без [0]
+        const modul = coursesVideo.moduls[lastProgress?.modulIndex];
+        const lesson = modul?.modul_lessons?.[lastProgress?.lessonIndex];
+
+        if (modul && lesson) {
+          setCurrentModul(lastProgress.modulIndex);
+          setCurrentLesson(lastProgress.lessonIndex);
+        } else {
+          setCurrentModul(0);
+          setCurrentLesson(0);
+        }
       }
     }
+  }, [allCourses, id, coursesVideo]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!loading && !coursesVideo) {
+        setShowNotFound(true);
+      }
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [loading, coursesVideo]);
+
+  if (loading || loadingData) {
+    return <Loader />;
   }
-}, [allCourses, id, coursesVideo]);
 
-useEffect(() => {
-  const timer = setTimeout(() => {
-    if (!loading && !coursesVideo) {
-      setShowNotFound(true);
-    }
-  }, 1000);
+  if (!coursesVideo || !currentCourse) {
+    return <NotFound />;
+  }
 
-  return () => clearTimeout(timer);
-}, [loading, coursesVideo]);
-
-if (loading || loadingData) {
-  return <Loader />;
-}
-
-if (!coursesVideo || !currentCourse) {
-  return <NotFound />;
-}
-
-if (
-  !coursesVideo.moduls?.[currentModul] ||
-  !coursesVideo.moduls[currentModul]?.modul_lessons?.[currentLesson]
-) {
-  return <NotFound />;
-}
+  if (
+    !coursesVideo.moduls?.[currentModul] ||
+    !coursesVideo.moduls[currentModul]?.modul_lessons?.[currentLesson]
+  ) {
+    return;
+  }
 
   return (
-    <div className='CoursesPage'>
+    <div className='CoursesPage' onClick={() => setActiveList(false)}>
       <div className="CoursePage__nav">
         <div className="CoursePage__tex">
           <p onClick={() => navigate(-1)}><FaArrowLeft /> {currentCourse?.course_name}</p>
           <h3>{coursesVideo?.moduls[currentModul]?.modul_lessons[currentLesson]?.lesson_name}</h3>
         </div>
-        <button onClick={() => setActiveList(!activeList)}><RiPlayList2Fill /> PlayList</button>
+        <button onClick={(e) => {setActiveList(true); e.stopPropagation()}}><RiPlayList2Fill /> PlayList</button>
       </div>
 
       <div className="CoursesPage__videoPLayer">
         <div className="video__player">
-          <iframe src={coursesVideo?.moduls[currentModul]?.modul_lessons[currentLesson]?.lesson_video + '?controls=1&rel=0'} frameBorder="0" allowFullScreen style={{ width: '100%', height: '100%' }}></iframe>
+          {isValidVideoUrl(coursesVideo?.moduls[currentModul]?.modul_lessons[currentLesson]?.lesson_video) ? (
+            <iframe
+              src={`${coursesVideo.moduls[currentModul].modul_lessons[currentLesson].lesson_video}?controls=1&rel=0`}
+              frameBorder="0"
+              allowFullScreen
+              style={{ width: '100%', height: '100%' }}
+            />
+          ) : (
+            <div className="video-placeholder">
+              <h3>Admin videoni yuklamoqda</h3>
+            </div>
+          )}
         </div>
-        <div className={`play__list ${activeList ? 'active' : ''}`}>
+        <div className={`play__list ${activeList ? 'active' : ''}`} onClick={(e) => e.stopPropagation()}>
           <div className="play__list__nav">
             <div className="play__list__text">
               <h3>{currentCourse?.course_name}</h3>
